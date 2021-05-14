@@ -1,0 +1,208 @@
+.banner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Overpass', sans-serif;
+}
+
+.slick-dots {
+    bottom: 10px;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #fff;
+}
+
+.slick-list, .slick-slider {
+    position: relative;
+    display: block;
+}
+
+.slick-slide img {
+    background-size: cover;
+    visibility: visible;
+    display: block;
+    overflow: hidden;
+    width: 1518px;
+    height: 720px;
+    max-height: none;
+    left: 0px
+}
+
+.banner__content {
+    position: relative;
+}
+
+.banner-left {
+    position: absolute;
+    top: 250px;
+    left: 525px;
+    color: #fff;
+    text-align: center;
+}
+
+.banner-left__desc {
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.banner-left__head {
+    font-weight: 800;
+    font-size: 20px;  
+}
+
+.banner-left__title {
+    font-weight: 800;
+}
+
+.banner-left__button button {
+    width: 150px;
+    height: 45px;
+    background: #c19876;
+    margin-top: 30px;
+}
+
+.banner-left__button:hover button {
+    background: #fff;
+    color: #c19876;
+}
+
+.banner-pre .fa-chevron-left {
+    cursor: pointer;
+    position: absolute;
+    color: #fff;
+    font-size: 40px;
+    z-index: 999;
+    left: 0;
+    top: 270px;
+    border: 1px solid;
+    margin-left: 30px;
+    border-radius: 40px;
+    width: 50px;
+    height: 50px;
+    background: #c19876;
+    padding: 4px 0px 2px 9px;
+}
+
+.banner-pre:hover .fa-chevron-left {
+    background: #fff;
+    color: #c19876;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.banner-next .fa-chevron-right {
+    cursor: pointer;
+    position: absolute;
+    color: #fff;
+    font-size: 40px;
+    z-index: 999;
+    right: 0;
+    top: 270px;
+    border: 1px solid;
+    margin-right: 30px;
+    border-radius: 40px;
+    width: 50px;
+    height: 50px;
+    background: #c19876;
+    padding: 4px 0px 2px 14px;
+}
+
+.banner-next:hover .fa-chevron-right {
+    background: #fff;
+    color: #c19876;
+    transition: all 0.3s ease-in-out;
+
+}
+
+/* =================== Responseve ==================== */
+
+@media only screen and (max-width : 1025px) {
+    .s-inner {
+        left: 0;
+    }
+
+    .banner-left {
+        left: 29%;
+    }
+}
+
+@media only screen and (max-width : 769px) {
+    .s-inner {
+        display: none;
+    }
+
+    .banner-left {
+        left: 22%;
+        top: 28%;
+    }
+}
+
+@media only screen and (max-width: 665px) {
+    .banner-pre .fa-chevron-left, .banner-next .fa-chevron-right {
+        display: none;
+    }
+
+    .banner-left{
+        left: 18%;
+    }
+}
+
+@media only screen and (max-width : 572px) {
+    .banner-left {
+        left: 12%;
+    }
+    
+    .banner-pre .fa-chevron-left {
+        display: none;
+    }
+
+    .banner-next .fa-chevron-right {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 426px) {
+    .banner-left__head {
+        font-size: 14px;
+    }
+
+    .banner-left__title {
+        font-size: 20px;
+    }
+
+    .banner-left__desc {
+        font-size: 12px;
+    }
+
+    .banner-left {
+        left: 12%;
+        top: 25%
+    }
+
+    .banner-pre .fa-chevron-left {
+        display: none;
+    }
+
+    .banner-next .fa-chevron-right {
+        display: none;
+    }
+
+    .slick-slide img {
+        height: 500px;
+    }
+}
+
+@media only screen and (max-width : 376px) {
+    .banner-left {
+        left: 9%;
+    }
+}
+
+@media only screen and (max-width : 321px) {
+    .banner-left {
+        left: 3%;
+    }
+}

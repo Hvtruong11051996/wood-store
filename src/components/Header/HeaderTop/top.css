@@ -1,0 +1,139 @@
+.s-inner {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 999;
+    left: 300px;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo img {
+    margin-top: 7px;
+}
+
+.navbar-menu {
+    display: flex;
+    padding: 0;
+    margin: 0 25px;
+    list-style: none;
+    position: static;
+}
+
+.nav-right ul .dropdown {
+    margin: 0 15px;
+    display: inline-block;
+    position: unset;
+}
+
+.navbar-menu-active>a {
+    color: rgb(193, 152, 118) !important;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 4px 12px 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.navbar-menu-active:hover>a {
+    cursor: pointer;
+}
+
+.nav-right ul .dropdown>a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 4px 12px 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.menusaga-show:hover > .box-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-right ul .dropdown:hover>a {
+    cursor: pointer;
+    color: rgb(193, 152, 118);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-right ul .dropdown i {
+    color: #fff;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    margin-top: 7px;
+}
+
+.search input {
+    border: 1px solid #fff;
+    padding: 14px 40px 11px 15px;
+    border-radius: 20px;
+    height: 30px;
+    background: transparent;
+    color: #fff;
+    padding-bottom: 15px;
+    outline: none;
+}
+
+.search-icon a i {
+    position: absolute;
+    top: 8px;
+    right: 25px;
+    color: #fff;
+}
+
+.box-menu {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    height: 345px;
+    background: #fff;
+    position: absolute;
+    z-index: 99999999999;
+    left: 0;
+    /* top: 82px; */
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.slide-left-list {
+    list-style: none;
+}
+
+.slide-left-list > li > a {
+    text-decoration: none;
+    color: #5a5454;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.slide-left-list > li:hover > a {
+    color: rgb(193, 152, 118);
+}
+
+.box-slideNewproduct {
+    display: flex;
+}
+
+.slideNewproduct-text {
+    margin-left: 5px;
+}
+
+.slideNewproduct-img {
+    margin-bottom: 10px;
+}
+
+.img-area {
+    width: 270px !important;
+}

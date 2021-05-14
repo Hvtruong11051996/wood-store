@@ -1,0 +1,38 @@
+.kitchen-box {
+    margin-top: 100px;
+}
+
+.kitchen-box-store .relative {
+    
+}
+
+.kitchen-box-store .relative img { 
+    display: block;
+    max-width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.relative:hover img { 
+	transform: scale(1.1); 
+    cursor: pointer;
+}
+
+/* .relative:hover img {
+    cursor: pointer;
+    background-color: #ad6924;
+    opacity: 0.5;
+} */
+
+/* =============== Responseve ================== */
+@media only screen and (max-width : 769px) {
+    .kitchen-box-store > .col-md-6 {
+        padding-right: 4px;
+    }
+}
+
+@media only screen and (max-width : 426px) {
+    .kitchen-box-store > .col-md-6 {
+        padding-left: 14px;
+        padding-right: 16px;
+    }
+}
