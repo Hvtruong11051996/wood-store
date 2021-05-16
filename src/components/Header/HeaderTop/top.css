@@ -14,8 +14,8 @@ header.top-menu {
 }
 
 header.top-menu .s-inner {
-    margin-top: 35px;
-    padding-bottom: 15px;
+    margin-top: 15px;
+    padding-bottom: 10px;
 }
 
 .s-inner {
@@ -119,7 +119,7 @@ header.top-menu .s-inner {
     position: absolute;
     z-index: 99999999999;
     left: 10%;
-    top: 125px;
+    top: 80px;
     padding: 30px;
     display: flex;
     justify-content: center;

@@ -8,6 +8,10 @@
     margin-bottom: 50px;
 }
 
+.wood-product__header h2 {
+    font-weight: bold;
+}
+
 .wood-product__header h2:before {
     position: absolute;
     content: "";
