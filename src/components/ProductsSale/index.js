@@ -18,7 +18,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default class ProductItems extends Component {
+export default class ProductsSale extends Component {
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);

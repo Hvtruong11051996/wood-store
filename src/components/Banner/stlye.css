@@ -74,7 +74,7 @@
     position: absolute;
     color: #fff;
     font-size: 40px;
-    z-index: 999;
+    z-index: 1;
     left: 0;
     top: 270px;
     border: 1px solid;
@@ -98,7 +98,7 @@
     position: absolute;
     color: #fff;
     font-size: 40px;
-    z-index: 999;
+    z-index: 1;
     right: 0;
     top: 270px;
     border: 1px solid;

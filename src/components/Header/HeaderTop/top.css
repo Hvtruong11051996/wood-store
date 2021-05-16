@@ -1,8 +1,28 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: all 0.35s ease-in-out;
+}
+
+header.top-menu {
+    background-color: #5a5454;
+    opacity: 0.9;
+    box-shadow: 0px 5px 15px rgb(0, 0, 0, 0.5);
+}
+
+header.top-menu .s-inner {
+    margin-top: 35px;
+    padding-bottom: 15px;
+}
+
 .s-inner {
+    /* position: absolute; */
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
-    position: absolute;
     z-index: 999;
     left: 300px;
 }
@@ -91,7 +111,6 @@
 }
 
 .box-menu {
-    width: 100%;
     transition: all 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
@@ -99,11 +118,12 @@
     background: #fff;
     position: absolute;
     z-index: 99999999999;
-    left: 0;
-    /* top: 82px; */
+    left: 10%;
+    top: 125px;
     padding: 30px;
     display: flex;
     justify-content: center;
+    border: 1px solid #5a5454;
 }
 
 .slide-left-list {

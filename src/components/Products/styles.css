@@ -1,0 +1,138 @@
+.wood-products {
+    margin-top: 100px;
+}
+
+.wood-product__header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.wood-product__header h2:before {
+    position: absolute;
+    content: "";
+    background: #000;
+    height: 2px;
+    width: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+}
+
+.wood-product__pill {
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.wood-product__pill h5 {
+    border-right: 1px solid #5a5454;
+    margin-right: 15px;
+    padding-right: 10px;
+    transition: all 0.35s ease-in-out;
+}
+
+.wood-product__pill .new:hover,
+.wood-product__pill .top:hover,
+.wood-product__pill .most:hover,
+.wood-product__pill .sale:hover > h5 {
+    cursor: pointer;
+    color: #ffb900;
+}
+
+.wood-product__pill > .sale > h5 {
+    border-right: none;
+}
+
+.wood-product__content-img {
+    position: relative;
+}
+
+.wood-product__content-img:hover img {
+    opacity: 0.5;
+}
+
+.wood-product__content-img:hover .wood-product__content-icons ul li > i {
+    display: block;
+}
+
+.wood-product__content-img img {
+    cursor: pointer;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 15px rgb(0, 0, 0, 0.5);
+}
+
+.product-slide__name:hover h4 {
+    transition: all 0.35s ease-in-out;
+    color: #ffb900;
+    cursor: pointer;
+}
+
+.wood-product__content-icons ul {
+    list-style: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 17px;
+    left: 35px;
+}
+
+.wood-product__content-icons ul li > i {
+    font-size: 25px;
+    margin-right: 10px;
+    color: #c19876;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    text-align: center;
+    padding-top: 5px;
+    display: none;
+}
+
+.wood-product__content-icons ul li:hover i {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    color: #fff;
+    background-color: #5a5454;
+}
+
+@media only screen and (max-width: 1025px) {
+ .wood-product__content-items .col-sm-3 {
+    width: 33%;
+ }
+}
+
+@media only screen and (max-width: 769px) {
+    .wood-product__content-items .col-sm-3 {
+       width: 33%;
+    }
+    .wood-product__content-img img {
+        width: 200px;
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+
+    .wood-product__content-items .col-sm-3 {
+        width: 33%;
+     }
+     .wood-product__content-img img {
+         width: 200px;
+         height: 250px;
+     }
+     
+    .wood-product__pill h5 {
+        font-size: 11px;
+    }
+
+    .wood-product__content-items {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+
+
