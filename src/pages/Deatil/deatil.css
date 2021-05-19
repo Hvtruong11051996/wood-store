@@ -1,0 +1,213 @@
+.wood__deatil-menu .s-inner {
+    background-color: #5a5454;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.wood__deatil {
+    margin-top: 150px;
+}
+
+.wood-product__deatil {
+    display: flex;
+}
+
+.wood-product__deatil-img {
+    width: 50%;
+}
+
+.detail-img__sub img {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.wood-product__deatil-content {
+    width: 50%;
+}
+
+.deatil-content__title h2 {
+    font-weight: bold;
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.deatil-content__dec p {
+    font-size: 16px;
+    color: #898989;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.deatil-content__status p i,
+.deatil-content__status p span {
+    color: #5cb85c;
+}
+
+.deatil-content__price {
+    margin-bottom: 50px;
+}
+
+.deatil-content__price span {
+    font-family: "Overpass";
+    font-size: 24px;
+    color: #c19b76;
+    font-weight: 600;
+}
+
+hr {
+    border-top : 2px solid #c19b76;
+}
+
+.deatil-content__add {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.deatil-content__add button {
+    display: flex;
+    justify-content: center;
+    padding-top: 23px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #c19876;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Overpass', sans-serif;
+    color: #fff;
+    border: none;
+    width: 40%;
+    padding: 21px 13px 2px 10px;
+}
+
+.deatil-content__add:hover button {
+    background-color: #ffb900;
+}
+
+.deatil-content__add button i {
+    margin-right: 10px;
+}
+
+.deatil-content__sale {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border: 1px dashed #d33;
+}
+
+.deatil-content__sale h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-bottom: 30px;
+}
+
+.deatil-content__sale p i {
+    color: #5cb85c;
+    margin-right: 10px;
+}
+
+.wood-product__dec-content {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.wood-product__dec-content h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.wood-product__dec-content p {
+    font-size: 14px;
+    color: #898989;
+}
+
+.wood__deatil .product-item__sale-header h2 {
+    display: none;
+}
+
+.wood__deatil .product-item {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 1025px) {
+    .wood-product__deatil-content {
+        margin-left: 8%;
+    }
+
+    .detail-img__sub img {
+        margin-right: 7px;
+    }
+
+    .wood__deatil-menu .s-inner {
+        padding: 7px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .wood__deatil-menu .s-inner {
+        display: none;
+    }
+
+    .wood__deatil {
+        margin-top: 30px;
+    }
+
+    .wood-product__deatil {
+        display: block;
+    }
+
+    .wood-product__deatil-img {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .wood-product__deatil-content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+
+    .detail-img__preview img {
+        width: 400px;
+    }
+
+    .deatil-content__add button {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+
+    .detail-img__preview img {
+        width: 350px;
+    }
+
+    .deatil-content__add button {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+
+    .detail-img__preview img {
+        width: 250px;
+    }
+
+    .detail-img__sub {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

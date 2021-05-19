@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles.css';
+import './productSale.css';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -71,10 +71,10 @@ export default class ProductsSale extends Component {
         <div className="product-item__sale">
           <h4>Sản Phẩm Sale</h4>
         </div>
-        <div class="row">
+        <div className="row">
           <Slider {...settings}>
-            <div class="col-md-3 col-6">
-              <div class="product-slide">
+            <div className="col-md-3 col-6">
+              <div className="product-slide">
                 <div className="product-slide__img">
                   <img src="images/2.png" alt="slide ảnh"></img>
                 </div>
@@ -91,8 +91,8 @@ export default class ProductsSale extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6">
-              <div class="product-slide">
+            <div className="col-md-3 col-6">
+              <div className="product-slide">
                 <div className="product-slide__img">
                   <img src="images/3.png" alt="slide ảnh"></img>
                 </div>
@@ -109,8 +109,8 @@ export default class ProductsSale extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6">
-              <div class="product-slide">
+            <div className="col-md-3 col-6">
+              <div className="product-slide">
                 <div className="product-slide__img">
                   <img src="images/4.png" alt="slide ảnh"></img>
                 </div>
@@ -127,8 +127,8 @@ export default class ProductsSale extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6">
-              <div class="product-slide">
+            <div className="col-md-3 col-6">
+              <div className="product-slide">
                 <div className="product-slide__img">
                   <img src="images/5.png" alt="slide ảnh"></img>
                 </div>
@@ -145,8 +145,8 @@ export default class ProductsSale extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6">
-              <div class="product-slide">
+            <div className="col-md-3 col-6">
+              <div className="product-slide">
                 <div className="product-slide__img">
                   <img src="images/6.png" alt="slide ảnh"></img>
                 </div>
@@ -163,8 +163,8 @@ export default class ProductsSale extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6">
-              <div class="product-slide">
+            <div className="col-md-3 col-6">
+              <div className="product-slide">
                 <div className="product-slide__img">
                   <img src="images/7.png" alt="slide ảnh"></img>
                 </div>
@@ -181,8 +181,8 @@ export default class ProductsSale extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6">
-              <div class="product-slide">
+            <div className="col-md-3 col-6">
+              <div className="product-slide">
                 <div className="product-slide__img">
                   <img src="images/8.png" alt="slide ảnh"></img>
                 </div>

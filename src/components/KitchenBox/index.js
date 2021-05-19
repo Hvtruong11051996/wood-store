@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './kichenbox.css';
 
 function KitchenBox(props) {
   return (

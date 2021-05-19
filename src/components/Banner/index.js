@@ -7,7 +7,7 @@ import Banner2 from '../../images/Home/2.jpg';
 import Banner3 from '../../images/Home/3.jpg';
 import Banner4 from '../../images/Home/4.jpg';
 import Header from '../Header/HeaderTop'
-import './stlye.css';
+import './banner.css';
 
 function SampleNextArrow(props) {
   const { onClick } = props;

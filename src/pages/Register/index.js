@@ -1,59 +1,59 @@
 import React from 'react';
-import './styles.css';
+import './resgister.css';
 
 function Register(props) {
   return (
     <div>
-      <img class="wave" src="img/wave.png" />
-      <div class="container login-wood">
-        <div class="img">
+      <img className="wave" src="img/wave.png" />
+      <div className="container login-wood">
+        <div className="img">
         </div>
-        <div class="login-content">
+        <div className="login-content">
           <form action="index.html">
             <img src="img/avatar.svg" />
-            <h2 class="title">Welcome</h2>
-            <div class="input-div one">
-              <div class="i">
-                <i class="fas fa-user"></i>
+            <h2 className="title">Welcome</h2>
+            <div className="input-div one">
+              <div className="i">
+                <i className="fas fa-user"></i>
               </div>
-              <div class="div">
-                <input type="text" class="input" placeholder="UserName ..." />
-              </div>
-            </div>
-            <div class="input-div one">
-              <div class="i">
-                <i class="far fa-envelope"></i>
-              </div>
-              <div class="div">
-                <input type="text" class="input" placeholder="Email ..." />
+              <div className="div">
+                <input type="text" className="input" placeholder="UserName ..." />
               </div>
             </div>
-            <div class="input-div pass">
-              <div class="i">
-                <i class="fas fa-lock"></i>
+            <div className="input-div one">
+              <div className="i">
+                <i className="far fa-envelope"></i>
               </div>
-              <div class="div">
-                <input type="password" class="input" placeholder="PassWord ..." />
-              </div>
-            </div>
-            <div class="input-div pass">
-              <div class="i">
-                <i class="fas fa-lock"></i>
-              </div>
-              <div class="div">
-                <input type="password" class="input" placeholder="Confirm PassWord ..." />
+              <div className="div">
+                <input type="text" className="input" placeholder="Email ..." />
               </div>
             </div>
-            <div class="logout-wood">
-              <div class="back-login">
-                <div class="i">
-                  <i class="fas fa-long-arrow-alt-left"></i>
+            <div className="input-div pass">
+              <div className="i">
+                <i className="fas fa-lock"></i>
+              </div>
+              <div className="div">
+                <input type="password" className="input" placeholder="PassWord ..." />
+              </div>
+            </div>
+            <div className="input-div pass">
+              <div className="i">
+                <i className="fas fa-lock"></i>
+              </div>
+              <div className="div">
+                <input type="password" className="input" placeholder="Confirm PassWord ..." />
+              </div>
+            </div>
+            <div className="logout-wood">
+              <div className="back-login">
+                <div className="i">
+                  <i className="fas fa-long-arrow-alt-left"></i>
                 </div>
                 <a style={{ marginLeft: 5 }} href="#">Login</a>
               </div>
               <a href="#">Forgot Password?</a>
             </div>
-            <input type="submit" class="btn" value="Register" />
+            <input type="submit" className="btn" value="Register" />
           </form>
         </div>
       </div>

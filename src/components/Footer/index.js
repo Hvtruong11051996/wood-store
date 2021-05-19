@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './footer.css';
 
 function Footer(props) {
   return (
@@ -41,15 +41,15 @@ function Footer(props) {
               <h2>Contact Us</h2>
               <ul>
                 <li>
-                  <i class="fas fa-location-arrow"></i>
+                  <i className="fas fa-location-arrow"></i>
                   <a>Chợ Triều Khúc - Tân Triều - Thanh Trì - Hà Nội</a>
                 </li>
                 <li>
-                  <i class="far fa-envelope-open"></i>
+                  <i className="far fa-envelope-open"></i>
                   <a>Hoangtruongttat96@gmail.com</a>
                 </li>
                 <li>
-                  <i class="fas fa-phone-alt"></i>
+                  <i className="fas fa-phone-alt"></i>
                   <a>0979454593</a>
                 </li>
               </ul>

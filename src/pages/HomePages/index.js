@@ -8,6 +8,7 @@ import Products from '../../components/Products';
 import ProductsSale from '../../components/ProductsSale';
 
 function HomePages(props) {
+
     return (
         <div>
             <Banner></Banner>

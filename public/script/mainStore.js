@@ -5,5 +5,16 @@ $(document).ready(function () {
         } else {
             $('header').removeClass('top-menu');
         }
+
+        // if ($(this).scrollTop()) {
+        //     $('.back-top').fadeIn();
+        // } else {
+        //     $('.back-top').fadeOut();
+        // }
+
+        // $('.back-top').click(function () {
+        //     console.log('back');
+        //     $('html, body').animate({ scrollTop: 0 }, 300);
+        // })
     });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './product.css';
 
 function Products(props) {
   return (
@@ -24,15 +24,15 @@ function Products(props) {
         </div>
         <div className="wood-product__content">
           <div className="wood-product__content-items">
-            <div class="row">
-              <div class="col-sm-3 col-6">
+            <div className="row">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/2.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>
@@ -48,14 +48,14 @@ function Products(props) {
                   </div>
                 </div>
               </div>
-              <div class="col-sm-3 col-6">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/3.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>
@@ -72,14 +72,14 @@ function Products(props) {
                 </div>
               </div>
 
-              <div class="col-sm-3 col-6">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/4.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>
@@ -96,14 +96,14 @@ function Products(props) {
                 </div>
               </div>
 
-              <div class="col-sm-3 col-6">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/5.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>
@@ -120,14 +120,14 @@ function Products(props) {
                 </div>
               </div>
 
-              <div class="col-sm-3 col-6">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/6.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>
@@ -144,14 +144,14 @@ function Products(props) {
                 </div>
               </div>
 
-              <div class="col-sm-3 col-6">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/7.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>
@@ -168,14 +168,14 @@ function Products(props) {
                 </div>
               </div>
 
-              <div class="col-sm-3 col-6">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/8.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>
@@ -192,14 +192,14 @@ function Products(props) {
                 </div>
               </div>
 
-              <div class="col-sm-3 col-6">
+              <div className="col-sm-3 col-6">
                 <div className="wood-product__content-img">
                   <img src="images/2.png" alt="product"></img>
                   <div className="wood-product__content-icons">
                     <ul>
-                      <li><i class="fas fa-cart-plus"></i></li>
-                      <li><i class="la la-eye"></i></li>
-                      <li><i class="la la-heart-o"></i></li>
+                      <li><i className="fas fa-cart-plus"></i></li>
+                      <li><i className="la la-eye"></i></li>
+                      <li><i className="la la-heart-o"></i></li>
                     </ul>
                   </div>
                 </div>

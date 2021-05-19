@@ -7,7 +7,7 @@ function HeaderTop(props) {
     <header>
       <div className="s-inner clearfix">
         <div className="logo">
-          <img src={logo}></img>
+          <img src={logo} alt="logo"></img>
         </div>
         <div className="pull-right nav-right">
           <ul className="navbar-menu">
