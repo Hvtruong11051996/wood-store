@@ -1,0 +1,40 @@
+.wood-history .s-inner {
+    background-color: #5a5454;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.wood-history__content {
+    margin-top: 150px;
+}
+
+.wood-history__content .ant-tabs-tab {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.history-cart {
+    margin-top: 50px;
+    display: flex;
+}
+
+.history-cart .history-cart__img img {
+    width: 200px;
+    height: 200px;
+}
+
+.history-cart .history-cart__text {
+    margin-left: 50px;
+}
+
+.history-cart .history-cart__text span {
+    color: chocolate;
+}
+
+.history-cart__status {
+    margin-top: 30px;
+}
+
+.history-cart__status .btn-cancel-order-call {
+    margin-right: 10px;
+}

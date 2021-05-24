@@ -1,0 +1,15 @@
+.wood-notfound .s-inner {
+    background-color: #5a5454;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.wood-notfound__content {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.wood-notfound__text {
+    font-size: 20px;
+    margin-top: 20px;
+}

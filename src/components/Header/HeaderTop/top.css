@@ -114,13 +114,13 @@ header.top-menu .s-inner {
     transition: all 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
-    height: 345px;
+    height: 345px !important;
     background: #fff;
     position: absolute;
     z-index: 99999999999;
     left: 10%;
     top: 120px;
-    padding: 30px;
+    padding: 30px !important;
     display: flex;
     justify-content: center;
     border: 1px solid #5a5454;

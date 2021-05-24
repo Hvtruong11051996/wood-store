@@ -6,24 +6,8 @@
     position: relative;
 }
 
-.product-slide__text {
-    display: flex;
-}
-
-.product-slide__text .product-slide__sale {
-    font-weight: 500;
-    font-size: 16px;
-    color: #5a5454;
-    margin-bottom: 5px;
-    text-decoration: line-through;
-    margin-right: 10px;
-}
-
-.product-slide__text .product-slide__price {
-    font-weight: 700;
-    font-size: 16px;
-    color: #c19876;
-    margin-bottom: 5px;
+.product-slide__name h4 {
+    margin-top: 15px;
 }
 
 .product-slide__img img {

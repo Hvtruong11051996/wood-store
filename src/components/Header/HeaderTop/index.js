@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 import './top.css';
 
@@ -7,15 +8,21 @@ function HeaderTop(props) {
     <header>
       <div className="s-inner clearfix">
         <div className="logo">
-          <img src={logo} alt="logo"></img>
+          <Link to="/">
+            <img src={logo} alt="logo"></img>
+          </Link>
         </div>
         <div className="pull-right nav-right">
           <ul className="navbar-menu">
             <li className="navbar-menu-active">
-              <a>HOME</a>
+              <Link to="/">
+                HOME
+              </Link>
             </li>
             <li className="dropdown menusaga-show">
-              <a>PRODUCT</a>
+              <Link to="/products">
+                PRODUCT
+              </Link>
               <i className="fas fa-angle-down"></i>
               <div className="box-menu container">
                 <div className="row">
@@ -114,11 +121,12 @@ function HeaderTop(props) {
               </div>
             </li>
             <li className="dropdown menusaga-show">
-              <a>EXPLORE</a>
+              <Link to="/explore">
+                EXPLORE
+              </Link>
               <i className="fas fa-angle-down"></i>
               <div className="box-menu container">
                 <div className="row">
-
                   <div className="col-md-3 ">
                     <div className=" slideSort">
                       <h3 className="slider-left-title">About Us</h3>
@@ -198,14 +206,20 @@ function HeaderTop(props) {
               </div>
             </li>
             <li className="dropdown">
-              <a>ABOUTS</a>
+              <Link to="/abouts">
+                ABOUTS
+              </Link>
             </li>
             <li className="dropdown">
-              <a>CONTACT</a>
+              <Link to="/login">
+                USER
+              </Link>
             </li>
             <li className="dropdown">
               <i className="fas fa-cart-plus"></i>
-              <a>CART</a>
+              <Link to="/carts">
+                CART
+              </Link>
             </li>
           </ul>
         </div>

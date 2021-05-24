@@ -8,6 +8,8 @@ import Banner3 from '../../images/Home/3.jpg';
 import Banner4 from '../../images/Home/4.jpg';
 import Header from '../Header/HeaderTop'
 import './banner.css';
+import MenuMobile from '../MenuMobile';
+import { Link } from 'react-router-dom';
 
 function SampleNextArrow(props) {
   const { onClick } = props;
@@ -72,7 +74,11 @@ export default class Banner extends Component {
                   dolore eu fugiat nulla pariatur.
                 </p>
                 <div className="banner-left__button animate__animated animate__fadeInUp animate__delay-1.5s">
-                  <button>SHOP NOW</button>
+                  <Link to="/products">
+                    <button>
+                      SHOP NOW
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="banner-right">
@@ -97,7 +103,11 @@ export default class Banner extends Component {
                   dolore eu fugiat nulla pariatur.
                 </p>
                 <div className="banner-left__button animate__animated animate__fadeInUp animate__delay-1.5s">
-                  <button>SHOP NOW</button>
+                  <Link to="/products">
+                    <button>
+                      SHOP NOW
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="banner-right">
@@ -123,7 +133,11 @@ export default class Banner extends Component {
                   dolore eu fugiat nulla pariatur.
                 </p>
                 <div className="banner-left__button animate__animated animate__fadeInUp animate__delay-1.5s">
-                  <button>SHOP NOW</button>
+                  <Link to="/products">
+                    <button>
+                      SHOP NOW
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="banner-right">
@@ -149,7 +163,11 @@ export default class Banner extends Component {
                   dolore eu fugiat nulla pariatur.
                 </p>
                 <div className="banner-left__button animate__animated animate__fadeInUp animate__delay-1.5s">
-                  <button>SHOP NOW</button>
+                  <Link to="/products">
+                    <button>
+                      SHOP NOW
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="banner-right">

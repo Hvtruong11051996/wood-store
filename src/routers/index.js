@@ -1,5 +1,7 @@
 import React from 'react';
-import { useRouteMatch } from 'react-router';
+import Cart from '../pages/Cart';
+import HistoryCart from '../pages/HistoryCart';
+import ProductsPages from '../pages/ProductsPages';
 const HomePages = React.lazy(() => import('../pages/HomePages'))
 const Deatil = React.lazy(() => import('../pages/Deatil'))
 const Login = React.lazy(() => import('../pages/Login'))
@@ -29,6 +31,24 @@ const Routes = [
         component: Register,
         extra: true,
         path: '/register'
+    },
+
+    {
+        component: ProductsPages,
+        extra: true,
+        path: '/products'
+    },
+
+    {
+        component: Cart,
+        extra: true,
+        path: '/carts'
+    },
+
+    {
+        component: HistoryCart,
+        extra: true,
+        path: '/history'
     },
 
     {

@@ -12,6 +12,26 @@
     font-weight: bold;
 }
 
+.product-slide__text {
+    display: flex;
+}
+
+.product-slide__text .product-slide__price {
+    font-weight: 700;
+    font-size: 16px;
+    color: #c19876;
+    margin-bottom: 5px;
+}
+
+.product-slide__text .product-slide__sale {
+    font-weight: 500;
+    font-size: 16px;
+    color: #5a5454;
+    margin-bottom: 5px;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
 .wood-product__header h2:before {
     position: absolute;
     content: "";
@@ -36,10 +56,22 @@
     transition: all 0.35s ease-in-out;
 }
 
-.wood-product__pill .new:hover,
-.wood-product__pill .top:hover,
-.wood-product__pill .most:hover,
 .wood-product__pill .sale:hover > h5 {
+    cursor: pointer;
+    color: #ffb900;
+}
+
+.wood-product__pill .new:hover > h5 {
+    cursor: pointer;
+    color: #ffb900;
+}
+
+.wood-product__pill .top:hover> h5 {
+    cursor: pointer;
+    color: #ffb900;
+}
+
+.wood-product__pill .most:hover> h5 {
     cursor: pointer;
     color: #ffb900;
 }
@@ -99,6 +131,24 @@
     transition: all 0.5s ease-in-out;
     color: #fff;
     background-color: #5a5454;
+}
+
+.products-more {
+    text-align: end;
+}
+
+.products-more span a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5a5454;
+    margin-right: 10px;
+}
+
+.products-more span:hover a {
+    color: #ffb900;
+    cursor: pointer;
+    transition: all 0.35s ease-in-out;
 }
 
 @media only screen and (max-width: 1025px) {

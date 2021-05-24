@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './resgister.css';
 
 function Register(props) {
@@ -49,9 +50,11 @@ function Register(props) {
                 <div className="i">
                   <i className="fas fa-long-arrow-alt-left"></i>
                 </div>
-                <a style={{ marginLeft: 5 }} href="#">Login</a>
+                <a style={{ marginLeft: 5 }} href="#">
+                  <Link to="/login">Login</Link>
+                </a>
               </div>
-              <a href="#">Forgot Password?</a>
+              <a href="#"> <i class="fas fa-home"></i> <Link to="/">Home</Link></a>
             </div>
             <input type="submit" className="btn" value="Register" />
           </form>
