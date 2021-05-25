@@ -56,28 +56,23 @@
     transition: all 0.35s ease-in-out;
 }
 
-.wood-product__pill .sale:hover > h5 {
-    cursor: pointer;
-    color: #ffb900;
+.wood-product__pill {
+    list-style: none;
 }
 
-.wood-product__pill .new:hover > h5 {
+.wood-product__pill li a {
+    border-right: 2px solid #5a5454;
+    margin-right: 10px;
+    padding-right: 10px;
     cursor: pointer;
-    color: #ffb900;
+    display: block;
+    font-weight: 500;
+    color: #5a5454;
 }
 
-.wood-product__pill .top:hover> h5 {
-    cursor: pointer;
+.wood-product__pill li:hover > a {
+    transition: all 0.35s ease-in-out;
     color: #ffb900;
-}
-
-.wood-product__pill .most:hover> h5 {
-    cursor: pointer;
-    color: #ffb900;
-}
-
-.wood-product__pill > .sale > h5 {
-    border-right: none;
 }
 
 .wood-product__content-img {

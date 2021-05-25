@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './product.css';
+import Pills from './data';
+import { Link } from 'react-router-dom';
+import { Tabs } from 'antd';
+
+const { TabPane } = Tabs;
+
+function callback(key) {
+  console.log(key);
+}
 
 function Products(props) {
 
@@ -39,20 +48,18 @@ function Products(props) {
         <h2>Wood Product</h2>
       </div>
       <div className="wood-product__navtab">
-        <div className="wood-product__pill">
-          <div className="new">
-            <h5>NEW PRODUCT</h5>
-          </div>
-          <div className="most">
-            <h5>MOST POPULAR</h5>
-          </div>
-          <div className="top">
-            <h5>TOP TRENDING</h5>
-          </div>
-          <div className="sale">
-            <h5>SALE</h5>
-          </div>
-        </div>
+        <ul className="wood-product__pill">
+          <Tabs defaultActiveKey="1" onChange={callback}>
+            {Pills.map((pill, index) => {
+              return (
+                <TabPane tab={pill.title} key={index}>
+
+                </TabPane>
+              )
+            })}
+          </Tabs>
+
+        </ul>
         <div className="wood-product__content">
           <div className="wood-product__content-items">
             <div className="row">
@@ -62,7 +69,7 @@ function Products(props) {
         </div>
       </div>
       <div className="products-more">
-        <span><a>Xem Thêm</a></span>
+        <span><Link to="/products">Xem Thêm</Link></span>
         <i className="fas fa-long-arrow-alt-right"></i>
       </div>
     </div>
