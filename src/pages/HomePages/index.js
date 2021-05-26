@@ -37,8 +37,10 @@ function HomePages(props) {
             <MenuMobile></MenuMobile>
             <Banner></Banner>
             <KitchenBox></KitchenBox>
-            <ProductsSale></ProductsSale>
-            <Products products={products}></Products>
+            <ProductsSale products={products}></ProductsSale>
+            <Products
+                products={products}
+            ></Products>
             <OurStore></OurStore>
             <Blog></Blog>
             <Footer></Footer>

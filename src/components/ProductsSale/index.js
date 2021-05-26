@@ -18,7 +18,8 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default class ProductsSale extends Component {
+class ProductsSale extends Component {
+
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
@@ -34,6 +35,7 @@ export default class ProductsSale extends Component {
   }
 
   render() {
+    const { products } = this.props;
 
     const settings = {
       infinite: true,
@@ -63,6 +65,31 @@ export default class ProductsSale extends Component {
       ]
     };
 
+    const productSale = products.filter(product => {
+      return product.sale > 0
+    })
+
+    const productList = productSale.map((product, index) => {
+      return (
+        <div className="product-slide" key={index}>
+          <div className="product-slide__img">
+            <img src={product.images} alt="slide ảnh"></img>
+          </div>
+          <div className="product-slide__name">
+            <h4>{product.name}</h4>
+          </div>
+          <div className="product-slide__text">
+            <div className="product-slide__sale">
+              <p>${product.sale}</p>
+            </div>
+            <div className="product-slide__price">
+              <p>${product.price}</p>
+            </div>
+          </div>
+        </div>
+      )
+    })
+
 
     return (
 
@@ -72,137 +99,17 @@ export default class ProductsSale extends Component {
           <h4>Sản Phẩm Sale</h4>
         </div>
         <div className="row">
-          <Slider {...settings}>
-            <div className="col-md-3 col-6">
-              <div className="product-slide">
-                <div className="product-slide__img">
-                  <img src="images/2.png" alt="slide ảnh"></img>
-                </div>
-                <div className="product-slide__name">
-                  <h4>Biplane</h4>
-                </div>
-                <div className="product-slide__text">
-                  <div className="product-slide__sale">
-                    <p>$240.00</p>
-                  </div>
-                  <div className="product-slide__price">
-                    <p>$190.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-6">
-              <div className="product-slide">
-                <div className="product-slide__img">
-                  <img src="images/3.png" alt="slide ảnh"></img>
-                </div>
-                <div className="product-slide__name">
-                  <h4>Biplane</h4>
-                </div>
-                <div className="product-slide__text">
-                  <div className="product-slide__sale">
-                    <p>$240.00</p>
-                  </div>
-                  <div className="product-slide__price">
-                    <p>$190.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-6">
-              <div className="product-slide">
-                <div className="product-slide__img">
-                  <img src="images/4.png" alt="slide ảnh"></img>
-                </div>
-                <div className="product-slide__name">
-                  <h4>Biplane</h4>
-                </div>
-                <div className="product-slide__text">
-                  <div className="product-slide__sale">
-                    <p>$240.00</p>
-                  </div>
-                  <div className="product-slide__price">
-                    <p>$190.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-6">
-              <div className="product-slide">
-                <div className="product-slide__img">
-                  <img src="images/5.png" alt="slide ảnh"></img>
-                </div>
-                <div className="product-slide__name">
-                  <h4>Biplane</h4>
-                </div>
-                <div className="product-slide__text">
-                  <div className="product-slide__sale">
-                    <p>$240.00</p>
-                  </div>
-                  <div className="product-slide__price">
-                    <p>$190.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-6">
-              <div className="product-slide">
-                <div className="product-slide__img">
-                  <img src="images/6.png" alt="slide ảnh"></img>
-                </div>
-                <div className="product-slide__name">
-                  <h4>Biplane</h4>
-                </div>
-                <div className="product-slide__text">
-                  <div className="product-slide__sale">
-                    <p>$240.00</p>
-                  </div>
-                  <div className="product-slide__price">
-                    <p>$190.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-6">
-              <div className="product-slide">
-                <div className="product-slide__img">
-                  <img src="images/7.png" alt="slide ảnh"></img>
-                </div>
-                <div className="product-slide__name">
-                  <h4>Biplane</h4>
-                </div>
-                <div className="product-slide__text">
-                  <div className="product-slide__sale">
-                    <p>$240.00</p>
-                  </div>
-                  <div className="product-slide__price">
-                    <p>$190.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 col-6">
-              <div className="product-slide">
-                <div className="product-slide__img">
-                  <img src="images/8.png" alt="slide ảnh"></img>
-                </div>
-                <div className="product-slide__name">
-                  <h4>Biplane</h4>
-                </div>
-                <div className="product-slide__text">
-                  <div className="product-slide__sale">
-                    <p>$240.00</p>
-                  </div>
-                  <div className="product-slide__price">
-                    <p>$190.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Slider>
+          <div className="col col-6">
+            <Slider {...settings}>
+              {productList}
+            </Slider>
+
+          </div>
         </div>
       </div >
 
     )
   }
 }
+
+export default ProductsSale;

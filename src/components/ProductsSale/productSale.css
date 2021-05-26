@@ -91,6 +91,10 @@
     bottom: -8px;
 }
 
+.product-item .slick-slider .slick-list .slick-track {
+    left: 25px;
+}
+
 /* ============== Responseve ================*/
 
 @media only screen and (max-width: 1025px) {
@@ -118,13 +122,24 @@
     }
     .product-item__pre .fa-chevron-left,.product-item__next .fa-chevron-right  {
         font-size: 25px;
-        bottom: 114%;
+        bottom: 111%;
         width: 35px;
         height: 35px;
         padding: 3px 0px 1px 7px;
     }
+     .product-item .slick-slider .slick-list .slick-track {
+        left: 31px;
+    }
     
 }
+
+@media only screen and (max-width: 376px) {
+
+     .product-item .slick-slider .slick-list .slick-track {
+        left: 17px;
+    }
+}
+
 
 @media only screen and (max-width: 321px) {
     .product-item__pre .fa-chevron-left {
@@ -135,4 +150,9 @@
         width: 130px;
         height: 130px;
     }
+
+     .product-item .slick-slider .slick-list .slick-track {
+        left: 15px;
+    }
 }
+

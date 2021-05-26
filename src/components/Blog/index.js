@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './blog.css';
 
 function Blog(props) {
@@ -12,7 +13,7 @@ function Blog(props) {
               <div className="arrival">
                 <a href="#" style={{ color: '#000' }} className="Brightness">
                   <div className="btn-arrival">
-                    <div>SHOP NOW</div>
+                    <Link to="/products">SHOP NOW</Link>
                   </div>
                 </a>
               </div>
@@ -22,7 +23,7 @@ function Blog(props) {
               <div className="arrival">
                 <a href="#" style={{ color: '#000' }} className="Brightness">
                   <div className="btn-arrival">
-                    <div>SHOP NOW</div>
+                    <Link to="/products">SHOP NOW</Link>
                   </div>
                 </a>
               </div>

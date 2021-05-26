@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import './product.css';
-import Pills from './data';
+import { notification, Tabs } from 'antd';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Tabs } from 'antd';
+import './product.css';
+import { actAddToCart } from '../../actions/index';
 
 const { TabPane } = Tabs;
 
@@ -11,6 +12,8 @@ const callback = (key) => {
 }
 
 function Products(props) {
+
+  const dispatch = useDispatch();
 
   const { products } = props;
 
@@ -25,14 +28,35 @@ function Products(props) {
     return result;
   }
 
+  const onAddToCart = (product) => {
+    const action = actAddToCart(product, 1);
+    dispatch(action)
+  }
+
+  const openNotification = () => {
+    notification.success({
+      message: 'Thông Báo !',
+      description:
+        'Sản Phẩm Đã Được Thêm Vào Giỏ Hàng  !',
+    });
+  };
+
   const productList = products.map((product, index) => {
+
     return (
       <div className="col-sm-3 col-6" key={product.id}>
         <div className="wood-product__content-img">
           <img src={product.images} alt="product"></img>
           <div className="wood-product__content-icons">
             <ul>
-              <li><i className="fas fa-cart-plus"></i></li>
+              <li onClick={openNotification}>
+                <i
+                  type="primary"
+                  className="fas fa-cart-plus"
+                  onClick={() => onAddToCart(product)}
+                >
+                </i>
+              </li>
               <li><i className="la la-eye"></i></li>
               <li><i className="la la-heart-o"></i></li>
             </ul>

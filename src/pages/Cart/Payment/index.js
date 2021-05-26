@@ -9,16 +9,16 @@ function Payment(props) {
       <div className="wood-payment__info container">
         <h3>Thông Tin Khách Hàng</h3>
         <form>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Họ và tên ... " />
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Họ và tên ... " />
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Số điện thoại ..." />
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Số điện thoại ..." />
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Địa chỉ gia hàng ..." />
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Địa chỉ gia hàng ..." />
           </div>
-          <button type="submit" class="btn btn-primary">Complete purchase</button>
+          <button type="submit" className="btn btn-primary">Complete purchase</button>
         </form>
       </div>
     </div>
