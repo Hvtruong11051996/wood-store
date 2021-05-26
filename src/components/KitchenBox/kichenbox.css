@@ -12,7 +12,11 @@
     transition: all 0.3s ease-in-out;
 }
 
-.relative:hover img { 
+.relative img{
+    transition: all .2s ease-in-out;
+}
+
+.relative img:hover {
 	transform: scale(1.1); 
     cursor: pointer;
 }

@@ -1,12 +1,12 @@
 const Pills = [
     {
+        title: 'ALL PRODUCT'
+    },
+    {
         title: 'NEW PRODUCT'
     },
     {
         title: 'MOST POPULAR'
-    },
-    {
-        title: 'TOP TRENDING'
     },
     {
         title: 'SALE'
