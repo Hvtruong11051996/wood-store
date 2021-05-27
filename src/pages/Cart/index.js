@@ -10,6 +10,7 @@ function Cart(props) {
 
   const cartList = useSelector(state => state.carts);
 
+
   return (
     <div className="wood-cart">
       <HeaderTop></HeaderTop>

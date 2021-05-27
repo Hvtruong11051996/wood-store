@@ -49,7 +49,29 @@
     font-size: 16px;
     padding:1px 21px 5px 20px;
     border: none;
-};
+    margin-left: 35px
+}
+
+.radio-group {
+    position: relative;
+}
+
+.cart-items__quantity {
+    position: absolute;
+    top: -2px;
+    left: 92px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+}
+
+.product-table th {
+    text-align: center;
+}
+
+.product-table td {
+    text-align: center;
+}
 
 .center-on-small-only a {
     text-decoration: none;

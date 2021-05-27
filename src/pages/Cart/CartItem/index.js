@@ -1,12 +1,14 @@
 import { DeleteOutlined } from '@ant-design/icons';
-import { Button, notification, Popconfirm, Space } from 'antd';
+import { Button, InputNumber, notification, Space } from 'antd';
 import 'antd/dist/antd.css';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { actDeleteCart, actUpDateCart } from '../../../actions';
+import CartTotal from '../CartTotal';
 import './cartItem.css';
 
 const openNotification = () => {
-  notification.open({
+  notification.warning({
     message: 'Thông Báo !',
     description:
       'Xóa Sản Phẩm Thành Công !',
@@ -15,7 +17,37 @@ const openNotification = () => {
 
 function CartItem(props) {
 
+  const dispatch = useDispatch()
+  const carts = useSelector(state => state.carts)
+
   const { cartList } = props;
+
+  const upDateCart = (product, quantity) => {
+    if (quantity > 0) {
+      const action = actUpDateCart(product, quantity)
+      dispatch(action);
+    }
+
+  }
+
+  const deleteCart = (product) => {
+    const action = actDeleteCart(product)
+    console.log(action);
+    dispatch(action);
+  }
+
+  const totalCart = (product, quantity) => {
+    const price = product.price
+    const sale = product.sale
+    if (quantity > 0) {
+      return price * quantity - sale
+    }
+  }
+
+
+  function onChange(value) {
+    console.log('changed', value);
+  }
 
   return (
     <section className="cart-items container">
@@ -34,54 +66,54 @@ function CartItem(props) {
           </thead>
           <tbody>
             {cartList.map((cartItem, index) => {
+              const item = cartItem.product
+              const quantity = cartItem.quantity
               return (
                 <tr key={index}>
                   <th scope="row">
-                    <img src={cartItem.images} alt="" className="img-fluid z-depth-0" />
+                    <img src={item.images} alt="" className="img-fluid z-depth-0" />
                   </th>
                   <td>
                     <h3>
-                      <strong>{cartItem.name}</strong>
+                      <strong>{item.name}</strong>
                     </h3>
                   </td>
-                  <td>$ {cartItem.price}</td>
-                  <td>$ {cartItem.sale}</td>
+                  <td> {item.price} $</td>
+                  <td> {item.sale} $</td>
                   <td className="center-on-small-only">
-                    <span className="qty">1</span>
+
                     <div className="btn-group radio-group" data-toggle="buttons">
-                      <label className="btn btn-sm btn-primary btn-rounded waves-effect waves-light">
+                      <label
+                        className="btn btn-sm btn-primary btn-rounded waves-effect waves-light"
+                        onClick={() => upDateCart(item, quantity - 1)}
+                      >
                         <span>—</span>
                       </label>
-                      <label className="btn btn-sm btn-primary btn-rounded waves-effect waves-light">
+                      <InputNumber
+                        className="cart-items__quantity"
+                        min={1} max={10}
+                        defaultValue={quantity}
+                        onChange={onChange}
+                        value={quantity}
+                      />
+                      <label
+                        className="btn btn-sm btn-primary btn-rounded waves-effect waves-light"
+                        onClick={() => upDateCart(item, quantity + 1)}
+                      >
                         <span>+</span>
                       </label>
                     </div>
                   </td>
-                  <td>15$</td>
+                  <td>{totalCart(item, quantity)}$</td>
                   <td>
-                    <Space>
-                      <Popconfirm title="Bạn chắc chắn muốn xóa không ?" okText="Yes" cancelText="No">
-                        <Button type="danger" onClick={openNotification}> <DeleteOutlined />Delete</Button>
-                      </Popconfirm>
+                    <Space onClick={() => deleteCart(item)}>
+                      <Button type="danger" onClick={openNotification}> <DeleteOutlined />Delete</Button>
                     </Space>
                   </td>
                 </tr>
               )
             })}
-
-            <tr>
-              <td colSpan="3"></td>
-              <td>
-                <h4>
-                  <strong>Tổng Tiền</strong>
-                </h4>
-              </td>
-              <td>
-                <h4>
-                  <strong>15$</strong>
-                </h4>
-              </td>
-            </tr>
+            <CartTotal carts={carts}></CartTotal>
           </tbody>
         </table>
       </div>
