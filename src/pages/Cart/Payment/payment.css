@@ -28,3 +28,8 @@
 .wood-payment__info button {
     background-color:#ac85f0;
 }
+
+.wood-payment__info .form-group .text-danger {
+    margin-top: 10px;
+    margin-left: 10px;
+}

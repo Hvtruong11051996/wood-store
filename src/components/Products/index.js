@@ -1,9 +1,9 @@
 import { notification, Tabs } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useRouteMatch } from 'react-router-dom';
 import './product.css';
-import { actAddToCart } from '../../actions/index';
+import { actAddToCart, actProductDeatil } from '../../actions/index';
 
 const { TabPane } = Tabs;
 
@@ -14,6 +14,8 @@ const callback = (key) => {
 function Products(props) {
 
   const dispatch = useDispatch();
+  const match = useRouteMatch();
+  console.log(match);
 
   const { products } = props;
 
@@ -57,7 +59,11 @@ function Products(props) {
                 >
                 </i>
               </li>
-              <li><i className="la la-eye"></i></li>
+              <Link to="/deatil">
+                <li>
+                  <i className="la la-eye"></i>
+                </li>
+              </Link>
               <li><i className="la la-heart-o"></i></li>
             </ul>
           </div>
@@ -122,7 +128,7 @@ function Products(props) {
                             <div className="wood-product__content-icons">
                               <ul>
                                 <li><i className="fas fa-cart-plus"></i></li>
-                                <li><i className="la la-eye"></i></li>
+                                <Link to="/deatil"><li><i className="la la-eye"></i></li></Link>
                                 <li><i className="la la-heart-o"></i></li>
                               </ul>
                             </div>
@@ -161,7 +167,7 @@ function Products(props) {
                             <div className="wood-product__content-icons">
                               <ul>
                                 <li><i className="fas fa-cart-plus"></i></li>
-                                <li><i className="la la-eye"></i></li>
+                                <Link to="/deatil"><li><i className="la la-eye"></i></li></Link>
                                 <li><i className="la la-heart-o"></i></li>
                               </ul>
                             </div>
@@ -200,7 +206,7 @@ function Products(props) {
                             <div className="wood-product__content-icons">
                               <ul>
                                 <li><i className="fas fa-cart-plus"></i></li>
-                                <li><i className="la la-eye"></i></li>
+                                <Link to="/deatil"><li><i className="la la-eye"></i></li></Link>
                                 <li><i className="la la-heart-o"></i></li>
                               </ul>
                             </div>

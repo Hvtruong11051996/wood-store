@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderTop from '../../components/Header/HeaderTop';
 import './deatil.css';
 import ProductsSale from '../../components/ProductsSale';
 import Footer from '../../components/Footer';
+import { useSelector } from 'react-redux';
 
 
 function Deatil(props) {
+
+  const [products, setProduct] = useState([]);
+
+  useEffect(() => {
+    async function callProduct() {
+
+      try {
+        const requestUrl = 'https://my-json-server.typicode.com/Hvtruong11051996/api-woody/db';
+        const response = await fetch(requestUrl);
+        const responseJSON = await response.json();
+
+        const { data } = responseJSON;
+        setProduct(data);
+      } catch (error) {
+        console.log(error.message);
+      }
+
+    }
+
+    callProduct();
+  }, [])
+
   return (
     <div className="wood__deatil">
       <div className="wood__deatil-menu">
@@ -15,12 +38,6 @@ function Deatil(props) {
         <div className="wood-product__deatil-img">
           <div className="detail-img__preview">
             <img src="images/SingleProduct/Group 1059.png" alt="dec"></img>
-          </div>
-          <div className="detail-img__sub">
-            <img src="images/SingleProduct/Tractor-photo-3-897x897.png" alt="dec"></img>
-            <img src="images/SingleProduct/Tractor-photo-3-897x897.png" alt="dec"></img>
-            <img src="images/SingleProduct/Tractor-photo-3-897x897.png" alt="dec"></img>
-            <img src="images/SingleProduct/Tractor-photo-3-897x897.png" alt="dec"></img>
           </div>
         </div>
         <div className="wood-product__deatil-content">
@@ -77,7 +94,7 @@ function Deatil(props) {
         </p>
         </div>
       </div>
-      <ProductsSale></ProductsSale>
+      <ProductsSale products={products}></ProductsSale>
       <Footer></Footer>
     </div>
   );

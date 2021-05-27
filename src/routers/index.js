@@ -18,7 +18,7 @@ const Routes = [
     {
         component: Deatil,
         extra: true,
-        path: '/detail'
+        path: '/deatil'
     },
 
     {

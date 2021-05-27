@@ -20,3 +20,10 @@ export const actDeleteCart = (product) => {
         product: product,
     }
 }
+
+export const actProductDeatil = (product) => {
+    return {
+        type: 'DEATIL_CART',
+        product: product,
+    }
+}
