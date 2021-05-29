@@ -3,7 +3,6 @@ import './productSale.css';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
 
 function SampleNextArrow(props) {
   const { onClick } = props;
@@ -19,7 +18,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-class ProductsSale extends Component {
+class SlideDeatil extends Component {
 
   constructor(props) {
     super(props);
@@ -66,44 +65,18 @@ class ProductsSale extends Component {
       ]
     };
 
-    const URLFriendly = (str) => {
-      str = str.toLowerCase();
-
-      str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
-      str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
-      str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
-      str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
-      str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
-      str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
-      str = str.replace(/(đ)/g, 'd');
-
-      str = str.replace(/([^0-9a-z-\s])/g, '');
-
-      str = str.replace(/(\s+)/g, '-');
-
-      str = str.replace(/^-+/g, '');
-
-      str = str.replace(/-+$/g, '');
-
-      return str;
-    }
-
     const productSale = products.filter(product => {
       return product.sale > 0
     })
 
     const productList = productSale.map((product, index) => {
-      const URL = URLFriendly(product.name)
-
       return (
         <div className="product-slide" key={index}>
           <div className="product-slide__img">
-            <img src={product.images} alt="slide ảnh"></img>
+            <img src={`/${product.images}`} alt="slide ảnh"></img>
           </div>
           <div className="product-slide__name">
-            <Link to={`/deatil/${URL}.${product.id}.html`}>
-              <h4>{product.name}</h4>
-            </Link>
+            <h4>{product.name}</h4>
           </div>
           <div className="product-slide__text">
             <div className="product-slide__sale">
@@ -139,4 +112,4 @@ class ProductsSale extends Component {
   }
 }
 
-export default ProductsSale;
+export default SlideDeatil;

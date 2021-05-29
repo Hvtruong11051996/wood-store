@@ -1,19 +1,14 @@
-var data = JSON.parse(localStorage.getItem('DEATIL'))
-var initialState = data ? data : [];
+const initialState = []
 
 const deatil = (state = initialState, action) => {
 
-    var { product } = action;
-
-
     switch (action.type) {
-        case 'DEATIL_CART':
-            state.push(product);
+        case 'GET_DEATIL':
+            const newDeatil = [...action.product]
 
-            localStorage.setItem('DEATIL', JSON.stringify(state));
-            return [...state];
+            return newDeatil;
 
-        default: return [...state];
+        default: return state;
     }
 }
 

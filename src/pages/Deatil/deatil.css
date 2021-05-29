@@ -61,14 +61,12 @@ hr {
 
 .deatil-content__add {
     display: flex;
-    justify-content: center;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 .deatil-content__add button {
     display: flex;
-    justify-content: center;
     padding-top: 23px;
     font-size: 16px;
     text-transform: uppercase;
@@ -81,8 +79,7 @@ hr {
     font-family: 'Overpass', sans-serif;
     color: #fff;
     border: none;
-    width: 40%;
-    padding: 21px 13px 2px 10px;
+    width: 120%;
 }
 
 .deatil-content__add:hover button {
@@ -91,6 +88,7 @@ hr {
 
 .deatil-content__add button i {
     margin-right: 10px;
+    margin-left: 40px;
 }
 
 .deatil-content__sale {
@@ -134,6 +132,26 @@ hr {
 .wood__deatil .product-item {
     margin-top: 50px;
     margin-bottom: 100px;
+}
+
+.detail-img__preview img {
+    height: 500px;
+    width: 470px;
+    box-shadow: 0px 5px 15px rgb(0 0 0 / 50%);
+}
+
+
+.deatil-content__price .sale {
+    font-weight: 500;
+    font-size: 16px;
+    color: #5a5454;
+    margin-bottom: 5px;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+.deatil-content__status .fa-exclamation-circle {
+    color: red;
 }
 
 @media only screen and (max-width: 1025px) {

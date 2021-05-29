@@ -1,24 +1,33 @@
+import { notification } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useRouteMatch } from 'react-router';
+import { Link } from 'react-router-dom';
+import { actAddToCart } from '../../actions';
+import Footer from '../../components/Footer';
 import HeaderTop from '../../components/Header/HeaderTop';
 import './deatil.css';
-import ProductsSale from '../../components/ProductsSale';
-import Footer from '../../components/Footer';
-import { useSelector } from 'react-redux';
+import Slide from './Slide';
+
 
 
 function Deatil(props) {
 
-  const [products, setProduct] = useState([]);
+  const match = useRouteMatch();
+  const id = match.params.id
+  const [product, setProduct] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function callProduct() {
 
       try {
-        const requestUrl = 'https://my-json-server.typicode.com/Hvtruong11051996/api-woody/db';
+        const requestUrl = `https://my-json-server.typicode.com/Hvtruong11051996/api-woody/data/${id}`;
         const response = await fetch(requestUrl);
         const responseJSON = await response.json();
 
-        const { data } = responseJSON;
+        const data = responseJSON;
+
         setProduct(data);
       } catch (error) {
         console.log(error.message);
@@ -29,6 +38,20 @@ function Deatil(props) {
     callProduct();
   }, [])
 
+  const openNotification = () => {
+    notification.success({
+      message: 'Thông Báo :',
+      description:
+        'Sản Phẩm Đã Được Thêm Vào Giỏ Hàng  !',
+    });
+  };
+
+  const onAddToCart = (product) => {
+    const action = actAddToCart(product, 1);
+    dispatch(action)
+  }
+
+
   return (
     <div className="wood__deatil">
       <div className="wood__deatil-menu">
@@ -37,32 +60,35 @@ function Deatil(props) {
       <div className="wood-product__deatil container">
         <div className="wood-product__deatil-img">
           <div className="detail-img__preview">
-            <img src="images/SingleProduct/Group 1059.png" alt="dec"></img>
+            <img src={`/${product.images}`} alt="dec"></img>
           </div>
         </div>
         <div className="wood-product__deatil-content">
           <div className="deatil-content__title">
-            <h2>Truck</h2>
+            <h2>{product.name}</h2>
           </div>
           <div className="deatil-content__dec">
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing</p>
+            <p>{product.introduce}</p>
             <div className="deatil-content__status">
               <h4>Trạng Thái: </h4>
               <p>
-                <i className="far fa-check-circle"></i>
-                <span> Còn Hàng</span>
+                <i className={product.status === true ? 'far fa-check-circle' : 'fas fa-exclamation-circle'}></i>
+                <span> {product.status === true ? 'Còn Hàng' : 'Hết Hàng'}</span>
               </p>
             </div>
           </div>
           <div className="deatil-content__price">
-            <span>$ 59.99</span>
+            <span className="sale">$ {product.sale}</span>
+            <span className="price">$ {product.price}</span>
           </div>
           <hr></hr>
           <div className="deatil-content__add">
-            <button>
-              <i className="fas fa-cart-plus"></i>
-              <p>ADD TO CART</p>
-            </button>
+            <Link to="/carts">
+              <button onClick={openNotification}>
+                <i className="fas fa-cart-plus"></i>
+                <p onClick={() => onAddToCart(product)}>ADD TO CART</p>
+              </button>
+            </Link>
           </div>
           <div className="deatil-content__sale">
             <h2>KHUYẾN MÃI KHI MUA HÀNG</h2>
@@ -88,13 +114,10 @@ function Deatil(props) {
       <div className="wood-product__dec container">
         <div className="wood-product__dec-content">
           <h2>Description</h2>
-          <p>Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.
-
-          Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well- balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.
-        </p>
+          <p>{product.description}</p>
         </div>
       </div>
-      <ProductsSale products={products}></ProductsSale>
+      <Slide></Slide>
       <Footer></Footer>
     </div>
   );

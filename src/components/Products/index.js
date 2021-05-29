@@ -1,9 +1,9 @@
 import { notification, Tabs } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, NavLink, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { actAddToCart } from '../../actions/index';
 import './product.css';
-import { actAddToCart, actProductDeatil } from '../../actions/index';
 
 const { TabPane } = Tabs;
 
@@ -14,8 +14,6 @@ const callback = (key) => {
 function Products(props) {
 
   const dispatch = useDispatch();
-  const match = useRouteMatch();
-  console.log(match);
 
   const { products } = props;
 
@@ -37,14 +35,46 @@ function Products(props) {
 
   const openNotification = () => {
     notification.success({
-      message: 'Thông Báo !',
+      message: 'Thông Báo :',
       description:
         'Sản Phẩm Đã Được Thêm Vào Giỏ Hàng  !',
     });
   };
 
-  const productList = products.map((product, index) => {
+  const openUpdate = () => {
+    notification.warn({
+      message: 'Thông Báo :',
+      description:
+        'Chức năng đang cập nhật  !',
+    });
+  };
 
+  const URLFriendly = (str) => {
+    str = str.toLowerCase();
+
+    str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
+    str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
+    str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
+    str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
+    str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
+    str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
+    str = str.replace(/(đ)/g, 'd');
+
+    str = str.replace(/([^0-9a-z-\s])/g, '');
+
+    str = str.replace(/(\s+)/g, '-');
+
+    str = str.replace(/^-+/g, '');
+
+    str = str.replace(/-+$/g, '');
+
+    return str;
+  }
+
+
+
+  const productList = products.map((product, index) => {
+    const URL = URLFriendly(product.name)
     return (
       <div className="col-sm-3 col-6" key={product.id}>
         <div className="wood-product__content-img">
@@ -59,17 +89,21 @@ function Products(props) {
                 >
                 </i>
               </li>
-              <Link to="/deatil">
+              <Link to={`/deatil/${URL}.${product.id}.html`}>
                 <li>
                   <i className="la la-eye"></i>
                 </li>
               </Link>
-              <li><i className="la la-heart-o"></i></li>
+              <li onClick={openUpdate}>
+                <i className="la la-heart-o"></i>
+              </li>
             </ul>
           </div>
         </div>
         <div className="product-slide__name">
-          <h4>{product.name}</h4>
+          <Link to={`/deatil/${URL}.${product.id}.html`}>
+            <h4>{product.name}</h4>
+          </Link>
         </div>
         <div className="product-slide__ratting">
           {showRatting(product.ratting)}
@@ -121,6 +155,7 @@ function Products(props) {
                 <div className="wood-product__content-items">
                   <div className="row">
                     {productNew.map((product, index) => {
+                      const URL = URLFriendly(product.name)
                       return (
                         <div className="col-sm-3 col-6" key={product.id}>
                           <div className="wood-product__content-img">
@@ -128,13 +163,21 @@ function Products(props) {
                             <div className="wood-product__content-icons">
                               <ul>
                                 <li><i className="fas fa-cart-plus"></i></li>
-                                <Link to="/deatil"><li><i className="la la-eye"></i></li></Link>
-                                <li><i className="la la-heart-o"></i></li>
+                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                  <li>
+                                    <i className="la la-eye"></i>
+                                  </li>
+                                </Link>
+                                <li onClick={openUpdate}>
+                                  <i className="la la-heart-o"></i>
+                                </li>
                               </ul>
                             </div>
                           </div>
                           <div className="product-slide__name">
-                            <h4>{product.name}</h4>
+                            <Link to={`/deatil/${URL}.${product.id}.html`}>
+                              <h4>{product.name}</h4>
+                            </Link>
                           </div>
                           <div className="product-slide__ratting">
                             {showRatting(product.ratting)}
@@ -160,6 +203,7 @@ function Products(props) {
                 <div className="wood-product__content-items">
                   <div className="row">
                     {productTop.map((product, index) => {
+                      const URL = URLFriendly(product.name)
                       return (
                         <div className="col-sm-3 col-6" key={product.id}>
                           <div className="wood-product__content-img">
@@ -167,13 +211,21 @@ function Products(props) {
                             <div className="wood-product__content-icons">
                               <ul>
                                 <li><i className="fas fa-cart-plus"></i></li>
-                                <Link to="/deatil"><li><i className="la la-eye"></i></li></Link>
-                                <li><i className="la la-heart-o"></i></li>
+                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                  <li>
+                                    <i className="la la-eye"></i>
+                                  </li>
+                                </Link>
+                                <li onClick={openUpdate}>
+                                  <i className="la la-heart-o"></i>
+                                </li>
                               </ul>
                             </div>
                           </div>
                           <div className="product-slide__name">
-                            <h4>{product.name}</h4>
+                            <Link to={`/deatil/${URL}.${product.id}.html`}>
+                              <h4>{product.name}</h4>
+                            </Link>
                           </div>
                           <div className="product-slide__ratting">
                             {showRatting(product.ratting)}
@@ -199,6 +251,7 @@ function Products(props) {
                 <div className="wood-product__content-items">
                   <div className="row">
                     {productSale.map((product, index) => {
+                      const URL = URLFriendly(product.name)
                       return (
                         <div className="col-sm-3 col-6" key={product.id}>
                           <div className="wood-product__content-img">
@@ -206,13 +259,21 @@ function Products(props) {
                             <div className="wood-product__content-icons">
                               <ul>
                                 <li><i className="fas fa-cart-plus"></i></li>
-                                <Link to="/deatil"><li><i className="la la-eye"></i></li></Link>
-                                <li><i className="la la-heart-o"></i></li>
+                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                  <li>
+                                    <i className="la la-eye"></i>
+                                  </li>
+                                </Link>
+                                <li onClick={openUpdate}>
+                                  <i className="la la-heart-o"></i>
+                                </li>
                               </ul>
                             </div>
                           </div>
                           <div className="product-slide__name">
-                            <h4>{product.name}</h4>
+                            <Link to={`/deatil/${URL}.${product.id}.html`}>
+                              <h4>{product.name}</h4>
+                            </Link>
                           </div>
                           <div className="product-slide__ratting">
                             {showRatting(product.ratting)}

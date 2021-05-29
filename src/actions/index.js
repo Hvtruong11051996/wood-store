@@ -21,9 +21,9 @@ export const actDeleteCart = (product) => {
     }
 }
 
-export const actProductDeatil = (product) => {
+export const actionGetDeatil = (product) => {
     return {
-        type: 'DEATIL_CART',
+        type: 'GET_DEATIL',
         product: product,
     }
 }
