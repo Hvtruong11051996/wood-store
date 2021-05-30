@@ -1,82 +1,70 @@
 import React, { useEffect, useState } from 'react';
-import HeaderTop from '../../components/Header/HeaderTop';
-import Products from '../../components/Products';
-import Pagination from '../../components/Pagination';
-import './product.css';
+import { useSelector } from 'react-redux';
 import Footer from '../../components/Footer';
+import HeaderTop from '../../components/Header/HeaderTop';
+import Pagination from '../../components/Pagination';
+import Products from '../../components/Products';
+import './product.css';
+import Sort from './Sort';
 
 function ProductsPages(props) {
 
-  const [click, setClick] = useState(false)
   const [products, setProduct] = useState([]);
+  const fiterItem = useSelector(state => state.filterProduct)
 
   useEffect(() => {
     async function callProduct() {
-
       try {
-        const requestUrl = 'https://my-json-server.typicode.com/Hvtruong11051996/api-woody/db';
+        const requestUrl = "https://my-json-server.typicode.com/Hvtruong11051996/api-woody/db";
         const response = await fetch(requestUrl);
         const responseJSON = await response.json();
 
         const { data } = responseJSON;
-        setProduct(data);
+
+        if (fiterItem) {
+          const listFilter = data.filter((product) => {
+            return product.name.toLowerCase().indexOf(fiterItem.name) !== -1;
+            // indexOf "Trả về vị trí xuất hiện lần đầu tiên của một giá trị được tìm thấy trong chuỗi"
+          })
+          setProduct(listFilter);
+        } else {
+          setProduct(data);
+        }
+
       } catch (error) {
         console.log(error.message);
       }
 
     }
-
     callProduct();
-  }, [])
 
-  const handleClick = () => setClick(!click)
+  }, [fiterItem])
+
+  // ============================= Lọc dữ liệu =====================//
+  // if (fiterItem) {
+  //   if (fiterItem.name) {
+  //     const listFilter = products.filter((product) => {
+  //       return product.name.toLowerCase().indexOf(fiterItem.name) !== -1;
+  //       // indexOf "Trả về vị trí xuất hiện lần đầu tiên của một giá trị được tìm thấy trong chuỗi"
+  //     })
+  //     // console.log(listFilter);
+  //     setListFilter(listFilter)
+  //   }
+  //   // products = products.filter((product) => {
+  //   //   if (fiterItem.status === -1) {
+  //   //     return product;
+  //   //   } else {
+  //   //     return product.status === (fiterItem.status === 1 ? true : false)
+  //   //   }
+  //   // })
+  // }
+  // ============================================================== //
+
 
   return (
     <div className="pages-products">
       <HeaderTop></HeaderTop>
-      <div className="pages-products__sort container">
-        <input
-          type="text"
-          className="form-control"
-          name="filterName"
-          placeholder="Tìm kiếm nhanh ..."
-        />
-        <div className="pages-products__filter">
-          <div className={click ? 'dropdown' : ''} onClick={handleClick}>
-            <div>
-              <button type="button" className="btn btn-primary">
-                Sắp Xếp
-              <span className="fa fa-caret-square-o-down ml-5"></span>
-              </button>
-              <div className="sort-list">
-                <ul>
-                  <li>
-                    <a>
-                      <span className="fa fa-sort-alpha-asc pr-5">
-                        Sắp xếp theo tên sản phẩm
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span className="fa fa-sort-alpha-asc pr-5">
-                        Sắp xếp theo giá sản phẩm
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span className="fa fa-sort-alpha-asc pr-5">
-                        Sắp xếp theo trạng thái
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Sort></Sort>
       <Products products={products}></Products>
       <Pagination></Pagination>
       <Footer></Footer>

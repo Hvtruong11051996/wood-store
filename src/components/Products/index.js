@@ -8,7 +8,6 @@ import './product.css';
 const { TabPane } = Tabs;
 
 const callback = (key) => {
-  console.log(key);
 }
 
 function Products(props) {

@@ -27,3 +27,10 @@ export const actionGetDeatil = (product) => {
         product: product,
     }
 }
+
+export const actFiterProduct = (filter) => {
+    return {
+        type: 'FITER_PRODUCT',
+        filter: filter,
+    }
+}
