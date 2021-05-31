@@ -56,6 +56,7 @@
     transition: all 0.35s ease-in-out;
 }
 
+
 .wood-product__pill {
     list-style: none;
 }
@@ -178,6 +179,13 @@
         height: 250px;
     }
 }
+
+@media (min-width: 768px) {
+    .wood-product__content-items .col-sm-3 {
+        width: auto;
+    }
+}
+
 
 @media only screen and (max-width: 426px) {
 

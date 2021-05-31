@@ -2,8 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 import './top.css';
+import { Badge } from 'antd';
+import { useSelector } from 'react-redux';
 
 function HeaderTop(props) {
+
+  const cartCount = useSelector(state => state.carts)
+
   return (
     <header>
       <div className="s-inner clearfix">
@@ -215,9 +220,13 @@ function HeaderTop(props) {
                 USER
               </Link>
             </li>
-            <li className="dropdown">
-              <i className="fas fa-cart-plus"></i>
+            <li className="dropdown cart">
+
               <Link to="/carts">
+                <i className="fas fa-cart-plus"></i>
+                <Badge count={cartCount.length}>
+                  <span className="head-example" />
+                </Badge>
                 CART
               </Link>
             </li>

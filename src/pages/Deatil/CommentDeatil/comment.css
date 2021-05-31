@@ -1,0 +1,12 @@
+.comment-deatil {
+    margin-top: 100px;
+}
+
+.comment-deatil__header .anticon {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.comment-deatil__header h3 {
+    color: rgb(92, 92, 235);
+}

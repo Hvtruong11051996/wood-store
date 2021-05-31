@@ -18,6 +18,16 @@ header.top-menu .s-inner {
     padding-bottom: 10px;
 }
 
+.dropdown .fa-cart-plus {
+    font-size: 19px;
+    margin-right: 10px;
+}
+
+.dropdown .ant-badge {
+    top: -18px;
+    left: -8px;
+}
+
 .s-inner {
     /* position: absolute; */
     margin-top: 50px;

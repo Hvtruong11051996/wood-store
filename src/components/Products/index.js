@@ -27,11 +27,6 @@ function Products(props) {
     return result;
   }
 
-  const onAddToCart = (product) => {
-    const action = actAddToCart(product, 1);
-    dispatch(action)
-  }
-
   const openNotification = () => {
     notification.success({
       message: 'Thông Báo :',
@@ -39,6 +34,26 @@ function Products(props) {
         'Sản Phẩm Đã Được Thêm Vào Giỏ Hàng  !',
     });
   };
+
+  const openWarning = () => {
+    notification.warning({
+      message: 'Thông Báo :',
+      description:
+        'Sản Phẩm Đã Hết Hàng. Vui Lòng Chọn Sản Phẩm Khác !',
+    });
+  };
+
+
+  const onAddToCart = (product) => {
+    if (product.status === true) {
+      const action = actAddToCart(product, 1);
+      dispatch(action)
+      openNotification();
+    } else {
+      openWarning();
+    }
+  }
+
 
   const openUpdate = () => {
     notification.warn({
@@ -80,7 +95,7 @@ function Products(props) {
           <img src={product.images} alt="product"></img>
           <div className="wood-product__content-icons">
             <ul>
-              <li onClick={openNotification}>
+              <li>
                 <i
                   type="primary"
                   className="fas fa-cart-plus"
@@ -161,7 +176,14 @@ function Products(props) {
                             <img src={product.images} alt="product"></img>
                             <div className="wood-product__content-icons">
                               <ul>
-                                <li><i className="fas fa-cart-plus"></i></li>
+                                <li>
+                                  <i
+                                    type="primary"
+                                    className="fas fa-cart-plus"
+                                    onClick={() => onAddToCart(product)}
+                                  >
+                                  </i>
+                                </li>
                                 <Link to={`/deatil/${URL}.${product.id}.html`}>
                                   <li>
                                     <i className="la la-eye"></i>
@@ -209,7 +231,14 @@ function Products(props) {
                             <img src={product.images} alt="product"></img>
                             <div className="wood-product__content-icons">
                               <ul>
-                                <li><i className="fas fa-cart-plus"></i></li>
+                                <li>
+                                  <i
+                                    type="primary"
+                                    className="fas fa-cart-plus"
+                                    onClick={() => onAddToCart(product)}
+                                  >
+                                  </i>
+                                </li>
                                 <Link to={`/deatil/${URL}.${product.id}.html`}>
                                   <li>
                                     <i className="la la-eye"></i>
@@ -257,7 +286,14 @@ function Products(props) {
                             <img src={product.images} alt="product"></img>
                             <div className="wood-product__content-icons">
                               <ul>
-                                <li><i className="fas fa-cart-plus"></i></li>
+                                <li>
+                                  <i
+                                    type="primary"
+                                    className="fas fa-cart-plus"
+                                    onClick={() => onAddToCart(product)}
+                                  >
+                                  </i>
+                                </li>
                                 <Link to={`/deatil/${URL}.${product.id}.html`}>
                                   <li>
                                     <i className="la la-eye"></i>

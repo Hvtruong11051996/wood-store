@@ -8,6 +8,7 @@ import Footer from '../../components/Footer';
 import HeaderTop from '../../components/Header/HeaderTop';
 import './deatil.css';
 import Slide from './Slide';
+import CommentDeatil from './CommentDeatil';
 
 
 
@@ -46,9 +47,22 @@ function Deatil(props) {
     });
   };
 
+  const openWarning = () => {
+    notification.warning({
+      message: 'Thông Báo :',
+      description:
+        'Sản Phẩm Đã Hết Hàng. Vui Lòng Chọn Sản Phẩm Khác !',
+    });
+  };
+
   const onAddToCart = (product) => {
-    const action = actAddToCart(product, 1);
-    dispatch(action)
+    if (product.status === true) {
+      const action = actAddToCart(product, 1);
+      dispatch(action)
+      openNotification();
+    } else {
+      openWarning();
+    }
   }
 
 
@@ -83,8 +97,8 @@ function Deatil(props) {
           </div>
           <hr></hr>
           <div className="deatil-content__add">
-            <Link to="/carts">
-              <button onClick={openNotification}>
+            <Link to={product.status === true ? '/carts' : ''}>
+              <button class={product.status === false ? 'btn btn-danger btn-lg disabled' : ''}>
                 <i className="fas fa-cart-plus"></i>
                 <p onClick={() => onAddToCart(product)}>ADD TO CART</p>
               </button>
@@ -117,6 +131,7 @@ function Deatil(props) {
           <p>{product.description}</p>
         </div>
       </div>
+      <CommentDeatil></CommentDeatil>
       <Slide></Slide>
       <Footer></Footer>
     </div>

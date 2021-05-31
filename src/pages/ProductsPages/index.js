@@ -10,7 +10,13 @@ import Sort from './Sort';
 function ProductsPages(props) {
 
   const [products, setProduct] = useState([]);
+  console.log(products);
   const fiterItem = useSelector(state => state.filterProduct)
+  const sortName = useSelector(state => state.sortName)
+  const sortPrice = useSelector(state => state.sortPrice)
+  const sortStatus = useSelector(state => state.sortStatus)
+  console.log(sortStatus);
+
 
   useEffect(() => {
     async function callProduct() {
@@ -21,7 +27,8 @@ function ProductsPages(props) {
 
         const { data } = responseJSON;
 
-        if (fiterItem) {
+        // ==================== Lọc dữ liều tìm kiếm =========================== //
+        if (fiterItem.name) {
           const listFilter = data.filter((product) => {
             return product.name.toLowerCase().indexOf(fiterItem.name) !== -1;
             // indexOf "Trả về vị trí xuất hiện lần đầu tiên của một giá trị được tìm thấy trong chuỗi"
@@ -40,25 +47,107 @@ function ProductsPages(props) {
 
   }, [fiterItem])
 
-  // ============================= Lọc dữ liệu =====================//
-  // if (fiterItem) {
-  //   if (fiterItem.name) {
-  //     const listFilter = products.filter((product) => {
-  //       return product.name.toLowerCase().indexOf(fiterItem.name) !== -1;
-  //       // indexOf "Trả về vị trí xuất hiện lần đầu tiên của một giá trị được tìm thấy trong chuỗi"
-  //     })
-  //     // console.log(listFilter);
-  //     setListFilter(listFilter)
-  //   }
-  //   // products = products.filter((product) => {
-  //   //   if (fiterItem.status === -1) {
-  //   //     return product;
-  //   //   } else {
-  //   //     return product.status === (fiterItem.status === 1 ? true : false)
-  //   //   }
-  //   // })
-  // }
-  // ============================================================== //
+  useEffect(() => {
+    async function callProduct() {
+      try {
+        const requestUrl = "https://my-json-server.typicode.com/Hvtruong11051996/api-woody/db";
+        const response = await fetch(requestUrl);
+        const responseJSON = await response.json();
+
+        const { data } = responseJSON;
+
+        // ==================== Sắp xếp dữ liệu =========================== //
+        if (sortName.by) {
+          if (sortName.by === 'name') {
+
+            const listSortName = data.sort((a, b) => {
+              if (a.name > b.name) return sortName.value;
+              else if (a.name < b.name) return -sortName.value;
+              else return 0;
+            })
+
+            setProduct(listSortName);
+          } else {
+            setProduct(data);
+          }
+        }
+        // =============================================================== //
+
+      } catch (error) {
+        console.log(error.message);
+      }
+
+    }
+    callProduct();
+
+  }, [sortName])
+
+  useEffect(() => {
+    async function callProduct() {
+      try {
+        const requestUrl = "https://my-json-server.typicode.com/Hvtruong11051996/api-woody/db";
+        const response = await fetch(requestUrl);
+        const responseJSON = await response.json();
+
+        const { data } = responseJSON;
+
+        // ==================== Sắp xếp dữ liệu =========================== //
+        if (sortPrice.by) {
+
+          if (sortPrice.by === 'price') {
+            const listsortPrice = data.sort((a, b) => {
+              if (a.price > b.price) return sortPrice.value;
+              else if (a.price < b.price) return -sortPrice.value;
+              else return 0;
+            })
+
+            setProduct(listsortPrice);
+          } else {
+            setProduct(data);
+          }
+        }
+        // =============================================================== //
+
+      } catch (error) {
+        console.log(error.message);
+      }
+
+    }
+    callProduct();
+
+  }, [sortPrice])
+
+  useEffect(() => {
+    async function callProduct() {
+      try {
+        const requestUrl = "https://my-json-server.typicode.com/Hvtruong11051996/api-woody/db";
+        const response = await fetch(requestUrl);
+        const responseJSON = await response.json();
+
+        const { data } = responseJSON;
+
+        // ==================== Sắp xếp dữ liệu =========================== //
+        if (sortStatus.by) {
+
+          if (sortStatus.by === 'status') {
+            const listsortStatus = data.filter(product => product.status === true)
+
+            setProduct(listsortStatus);
+          } else {
+            setProduct(data);
+          }
+        }
+        // =============================================================== //
+
+      } catch (error) {
+        console.log(error.message);
+      }
+
+    }
+    callProduct();
+
+  }, [sortStatus])
+
 
 
   return (

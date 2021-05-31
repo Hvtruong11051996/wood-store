@@ -34,3 +34,24 @@ export const actFiterProduct = (filter) => {
         filter: filter,
     }
 }
+
+export const actSortByName = (sort) => {
+    return {
+        type: 'SORT_BY_NAME_PRODUCT',
+        sort: sort,
+    }
+}
+
+export const actSortByPrice = (sort) => {
+    return {
+        type: 'SORT_BY_PRICE_PRODUCT',
+        sort: sort,
+    }
+}
+
+export const actSortByStatus = (sort) => {
+    return {
+        type: 'SORT_BY_STATUS_PRODUCT',
+        sort: sort,
+    }
+}
