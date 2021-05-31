@@ -55,3 +55,10 @@ export const actSortByStatus = (sort) => {
         sort: sort,
     }
 }
+
+export const actRegister = (user) => {
+    return {
+        type: 'ACTION_REGISTER',
+        user: user,
+    }
+}

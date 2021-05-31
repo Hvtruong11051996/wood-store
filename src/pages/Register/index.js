@@ -1,67 +1,236 @@
+import { Button, Checkbox, Form, Input, notification, Select } from 'antd';
 import React from 'react';
+import './register.css';
+import HeaderTop from '../../components/Header/HeaderTop';
 import { Link } from 'react-router-dom';
-import './resgister.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { actRegister } from '../../actions';
+
+
+
+const { Option } = Select;
+
+const formItemLayout = {
+  labelCol: {
+    xs: {
+      span: 24,
+    },
+    sm: {
+      span: 8,
+    },
+  },
+  wrapperCol: {
+    xs: {
+      span: 24,
+    },
+    sm: {
+      span: 16,
+    },
+  },
+};
+const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0,
+    },
+    sm: {
+      span: 16,
+      offset: 8,
+    },
+  },
+};
+
+const openWarning = () => {
+  notification.warning({
+    message: 'Thông Báo :',
+    description:
+      'Tài khoản đã tồn tại. Vui lòng đăng nhập !',
+  });
+};
+
+var findProductToCart = (cart, product) => {
+  var index = -1;
+  if (cart.length > 0) {
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].product.id === product.id) {
+        index = i;
+        break;
+      }
+    }
+  }
+  return index;
+}
 
 function Register(props) {
+  const [form] = Form.useForm();
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.register)
+
+  const onFinish = (values) => {
+    if (users.length > 0) {
+      var checkExist = users.find(x => x.email === values.email);
+      if (!checkExist) {
+        const action = actRegister(values);
+        dispatch(action);
+      } else {
+        openWarning();
+      }
+    } else {
+      const action = actRegister(values);
+      dispatch(action);
+    }
+  };
+
+  const prefixSelector = (
+    <Form.Item name="prefix" noStyle>
+      <Select
+        style={{
+          width: 70,
+        }}
+      >
+        <Option value="86">+84</Option>
+        <Option value="87">+87</Option>
+      </Select>
+    </Form.Item>
+  );
+
   return (
-    <div>
-      <img className="wave" src="img/wave.png" />
-      <div className="container login-wood">
-        <div className="img">
-        </div>
-        <div className="login-content">
-          <form action="index.html">
-            <img src="img/avatar.svg" />
-            <h2 className="title">Welcome</h2>
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                <input type="text" className="input" placeholder="UserName ..." />
-              </div>
-            </div>
-            <div className="input-div one">
-              <div className="i">
-                <i className="far fa-envelope"></i>
-              </div>
-              <div className="div">
-                <input type="text" className="input" placeholder="Email ..." />
-              </div>
-            </div>
-            <div className="input-div pass">
-              <div className="i">
-                <i className="fas fa-lock"></i>
-              </div>
-              <div className="div">
-                <input type="password" className="input" placeholder="PassWord ..." />
-              </div>
-            </div>
-            <div className="input-div pass">
-              <div className="i">
-                <i className="fas fa-lock"></i>
-              </div>
-              <div className="div">
-                <input type="password" className="input" placeholder="Confirm PassWord ..." />
-              </div>
-            </div>
-            <div className="logout-wood">
-              <div className="back-login">
-                <div className="i">
-                  <i className="fas fa-long-arrow-alt-left"></i>
-                </div>
-                <a style={{ marginLeft: 5 }} href="#">
-                  <Link to="/login">Login</Link>
-                </a>
-              </div>
-              <a href="#"> <i class="fas fa-home"></i> <Link to="/">Home</Link></a>
-            </div>
-            <input type="submit" className="btn" value="Register" />
-          </form>
-        </div>
+    <div className="container register-woody">
+      <HeaderTop></HeaderTop>
+      <div className="register-woody__header">
+        <h3>Register - Woody</h3>
+      </div>
+      <Form
+        {...formItemLayout}
+        form={form}
+        name="register"
+        onFinish={onFinish}
+        initialValues={{
+          residence: ['zhejiang', 'hangzhou', 'xihu'],
+          prefix: '86',
+        }}
+        scrollToFirstError
+      >
+        <Form.Item
+          name="nickname"
+          label="Nickname"
+          tooltip="What do you want others to call you?"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your nickname!',
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          name="email"
+          label="E-mail"
+          rules={[
+            {
+              type: 'email',
+              message: 'The input is not valid E-mail!',
+            },
+            {
+              required: true,
+              message: 'Please input your E-mail!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          name="password"
+          label="Password"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!',
+            },
+          ]}
+          hasFeedback
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item
+          name="confirm"
+          label="Confirm Password"
+          dependencies={['password']}
+          hasFeedback
+          rules={[
+            {
+              required: true,
+              message: 'Please confirm your password!',
+            },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue('password') === value) {
+                  return Promise.resolve();
+                }
+
+                return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              },
+            }),
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item
+          name="phone"
+          label="Phone Number"
+          max={9}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your phone number!',
+            },
+          ]}
+        >
+          <Input
+            addonBefore={prefixSelector}
+            style={{
+              width: '100%',
+            }}
+          />
+        </Form.Item>
+
+        <Form.Item
+          name="agreement"
+          valuePropName="checked"
+          rules={[
+            {
+              validator: (_, value) =>
+                value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+            },
+          ]}
+          {...tailFormItemLayout}
+        >
+          <Checkbox>
+            I have read the <a href="">agreement</a>
+          </Checkbox>
+        </Form.Item>
+        <Form.Item {...tailFormItemLayout}>
+          <Button type="primary" htmlType="submit">
+            Register
+        </Button>
+        </Form.Item>
+      </Form>
+      <div style={{ textAlign: 'center' }}>
+        <h4>Bạn đã có tài khoản ?
+         <Link to="/login">
+            <a>Login</a>
+          </Link>
+        </h4>
       </div>
     </div>
   );
-}
+};
 
 export default Register;
