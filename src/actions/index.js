@@ -69,3 +69,10 @@ export const actUserLogin = (user) => {
         user: user,
     }
 }
+
+export const actLogout = (user) => {
+    return {
+        type: 'LOGOUT',
+        user: user,
+    }
+}

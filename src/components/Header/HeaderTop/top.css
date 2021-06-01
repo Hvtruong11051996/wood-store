@@ -28,6 +28,10 @@ header.top-menu .s-inner {
     left: -8px;
 }
 
+.navbar-menu .user .ant-btn {
+    background-color: navajowhite;
+    margin-top: 5px;
+}
 .s-inner {
     /* position: absolute; */
     margin-top: 50px;

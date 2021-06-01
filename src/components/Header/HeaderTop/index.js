@@ -1,13 +1,37 @@
+import { LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { Badge, Dropdown, Menu, notification } from 'antd';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { actLogout } from '../../../actions';
 import logo from '../../../images/logo.png';
 import './top.css';
-import { Badge } from 'antd';
-import { useSelector } from 'react-redux';
+
+
 
 function HeaderTop(props) {
 
   const cartCount = useSelector(state => state.carts)
+  const userRegister = useSelector(state => state.register)
+  const userLogin = useSelector(state => state.user)
+  const dispatch = useDispatch()
+
+  const user = userRegister.find(x => x.email === userLogin.email)
+
+  const openSuccess = () => {
+    notification.success({
+      message: 'Thông Báo :',
+      description:
+        'Đăng Xuất thành công !',
+    });
+  };
+
+  const onHandleChange = () => {
+    const action = actLogout({})
+    console.log(action);
+    dispatch(action);
+    openSuccess();
+  }
 
   return (
     <header>
@@ -215,11 +239,7 @@ function HeaderTop(props) {
                 ABOUTS
               </Link>
             </li>
-            <li className="dropdown">
-              <Link to="/login">
-                USER
-              </Link>
-            </li>
+
             <li className="dropdown cart">
 
               <Link to="/carts">
@@ -229,6 +249,36 @@ function HeaderTop(props) {
                 </Badge>
                 CART
               </Link>
+            </li>
+
+            <li className="dropdown user">
+              <Dropdown.Button overlay={
+                <Menu>
+                  <Menu.Item key="1" icon={<UserOutlined />}>
+                    {user ? user.nickname : ''}
+                  </Menu.Item>
+
+                  {user ?
+                    <Menu.Item key="2" icon={<LoginOutlined />} onClick={onHandleChange}>
+                      Đăng Xuất
+                    </Menu.Item>
+                    :
+                    <Menu.Item key="2" icon={<LoginOutlined />}>
+                      <Link to="/login"> Đăng Nhập </Link>
+                    </Menu.Item>
+                  }
+
+                  <Menu.Item key="3" icon={<LogoutOutlined />}>
+                    <Link to="/register">Đăng Ký</Link>
+                  </Menu.Item>
+                </Menu>
+              }
+                placement="bottomCenter"
+                icon={<UserOutlined />}
+              >
+                <Link to="/login">User</Link>
+
+              </Dropdown.Button>
             </li>
           </ul>
         </div>

@@ -8,6 +8,12 @@ const user = (state = initialState, action) => {
     switch (action.type) {
 
         case 'USER_LOGIN':
+            return {
+                email: action.user.email,
+                password: action.user.password
+            }
+
+        case 'LOGOUT':
             console.log(action.user);
             return {
                 email: action.user.email,
