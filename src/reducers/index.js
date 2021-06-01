@@ -6,6 +6,7 @@ import sortName from './sortName';
 import sortPrice from './sortPrice';
 import sortStatus from './sortStatus';
 import register from './register';
+import user from './user';
 
 
 const myReducers = combineReducers({
@@ -16,6 +17,7 @@ const myReducers = combineReducers({
     sortPrice,
     sortStatus,
     register,
+    user,
 });
 
 export default myReducers;

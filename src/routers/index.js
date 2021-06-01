@@ -4,7 +4,7 @@ import HistoryCart from '../pages/HistoryCart';
 import ProductsPages from '../pages/ProductsPages';
 const HomePages = React.lazy(() => import('../pages/HomePages'))
 const Deatil = React.lazy(() => import('../pages/Deatil'))
-//const Login = React.lazy(() => import('../pages/Login'))
+const Login = React.lazy(() => import('../pages/Login'))
 const Register = React.lazy(() => import('../pages/Register'))
 const NotFound = React.lazy(() => import('../pages/NotFound'))
 
@@ -21,11 +21,11 @@ const Routes = [
         path: '/deatil/:name.:id.html'
     },
 
-    // {
-    //     component: Login,
-    //     extra: true,
-    //     path: '/login'
-    // },
+    {
+        component: Login,
+        extra: true,
+        path: '/login'
+    },
 
     {
         component: Register,

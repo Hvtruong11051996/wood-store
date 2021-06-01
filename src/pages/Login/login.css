@@ -1,0 +1,45 @@
+.login-woody {
+    margin-top: 150px;
+}
+
+.login-woody .s-inner {
+    background-color: #5a5454;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.login-woody .login-woody__header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.login-woody .login-form {
+    max-width: 400px;
+    margin-bottom: 30px;
+  }
+.login-woody .login-form-forgot {
+    float: right;
+}
+.login-woody .ant-col-rtl .login-form-forgot {
+    float: left;
+}
+.login-woody .login-form-button {
+    width: 100%;
+}
+
+.login-woody .ant-form-item-with-help {
+    margin-bottom: 10px;
+}
+
+.login-woody .ant-input-affix-wrapper {
+    padding: 10px 11px;
+}
+
+.login-woody .login-woody__form {
+    display: flex;
+    justify-content: center;
+}
+
+.login-woody .ant-form-item-control-input-content {
+    width: 400px;
+}

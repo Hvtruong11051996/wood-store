@@ -62,3 +62,10 @@ export const actRegister = (user) => {
         user: user,
     }
 }
+
+export const actUserLogin = (user) => {
+    return {
+        type: 'USER_LOGIN',
+        user: user,
+    }
+}
