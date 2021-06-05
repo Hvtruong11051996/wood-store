@@ -51,12 +51,21 @@ const carts = (state = initialState, action) => {
         // ======== Xóa sản phẩm trong giỏ hàng =============== // 
         case 'DELETE_CART':
             index = findProductToCart(state, product);
+            console.log(index);
             if (index !== -1) {
                 state.splice(index, 1)
             }
             localStorage.setItem('CART', JSON.stringify(state));
             return [...state];
         // ================================================== //
+
+        // ======== Xóa giỏ hàng =============== // 
+        case 'PAY_DELETE_CART':
+            state = action.cart
+            localStorage.setItem('CART', JSON.stringify(state));
+            return state
+        // ================================================== //
+
 
 
         default: return [...state];

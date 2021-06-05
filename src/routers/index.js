@@ -1,5 +1,6 @@
 import React from 'react';
 import Cart from '../pages/Cart';
+import ComeBack from '../pages/ComeBack';
 import HistoryCart from '../pages/HistoryCart';
 import ProductsPages from '../pages/ProductsPages';
 const HomePages = React.lazy(() => import('../pages/HomePages'))
@@ -49,6 +50,12 @@ const Routes = [
         component: HistoryCart,
         extra: true,
         path: '/history'
+    },
+
+    {
+        component: ComeBack,
+        extra: true,
+        path: '/comeback'
     },
 
     {

@@ -76,3 +76,17 @@ export const actLogout = (user) => {
         user: user,
     }
 }
+
+export const actPayment = (cart) => {
+    return {
+        type: 'PAY_MENT',
+        cart
+    }
+}
+
+export const actPayDeleteCart = (cart) => {
+    return {
+        type: 'PAY_DELETE_CART',
+        cart: cart,
+    }
+}

@@ -1,26 +1,18 @@
-1, Trang Login 
 
-2, Trang đăng ký
 
-3, Trang lịch sử mua hàng
 
-5, Làm load more
 
-6, làm phân trang
+1,Làm menu mobile
+
+2, reponsive
+
+3, search
+
+4, làm các trang trên menu
+
 
 
 ---- Thêm vào trang cho đẹp :
 
-1, https://ant.design/components/modal/
---- Hộp xem thông tin chi tiết cho sản phẩm
 
 
-3, https://ant.design/components/form/
---- form cho phần cart để đẹp hơn
-
-
-5, https://ant.design/components/statistic/
---- đếm ngược thời gian cho sản phẩm Sale
-
-6, https://ant.design/components/result/
---- sau khi đặt hàng thì cho ra thông báo

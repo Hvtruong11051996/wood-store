@@ -67,7 +67,6 @@ function Register(props) {
   const onFinish = (values) => {
     if (users.length > 0) {
       var checkExist = users.find(x => x.email === values.email);
-      console.log(checkExist);
       if (!checkExist) {
         const action = actRegister(values);
         dispatch(action);

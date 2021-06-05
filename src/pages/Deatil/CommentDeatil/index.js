@@ -3,11 +3,13 @@ import moment from 'moment';
 import React from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import './comment.css';
+import { connect } from 'react-redux';
 
 const { TextArea } = Input;
 
-const CommentList = ({ comments }) => (
+const CommentList = ({ comments, author }) => (
   <List
+    author={author}
     dataSource={comments}
     header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
     itemLayout="horizontal"
@@ -21,7 +23,11 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
       <TextArea rows={4} onChange={onChange} value={value} />
     </Form.Item>
     <Form.Item>
-      <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
+      <Button
+        htmlType="submit"
+        loading={submitting}
+        onClick={onSubmit}
+        type="primary">
         Add Comment
       </Button>
     </Form.Item>
@@ -30,6 +36,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 
 class CommentDeatil extends React.Component {
   state = {
+    author: '',
     comments: [],
     submitting: false,
     value: '',
@@ -51,7 +58,7 @@ class CommentDeatil extends React.Component {
         comments: [
           ...this.state.comments,
           {
-            author: 'Han Solo',
+            author: <p>{this.state.author}</p>,
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: <p>{this.state.value}</p>,
             datetime: moment().fromNow(),
@@ -67,15 +74,25 @@ class CommentDeatil extends React.Component {
     });
   };
 
+  showUser = (user) => {
+    console.log(user);
+    this.setState({
+      author: user.nickname
+    });
+  }
+
   render() {
     const { comments, submitting, value } = this.state;
+    const { login, register } = this.props;
+
+    const userCmt = register.find(x => x.email === login.email)
 
     return (
       <div className="container comment-deatil">
         <div className="comment-deatil__header">
           <h3><EditOutlined />Product Reviews</h3>
         </div>
-        {comments.length > 0 && <CommentList comments={comments} />}
+        {comments.length > 0 && <CommentList author={userCmt} comments={comments} />}
         <Comment
           avatar={
             <Avatar
@@ -89,6 +106,7 @@ class CommentDeatil extends React.Component {
               onSubmit={this.handleSubmit}
               submitting={submitting}
               value={value}
+
             />
           }
         />
@@ -97,5 +115,19 @@ class CommentDeatil extends React.Component {
   }
 }
 
-export default CommentDeatil;
+const mapStateToProps = (state) => {
+  return {
+    login: state.user,
+    register: state.register
+  }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentDeatil);
+
 

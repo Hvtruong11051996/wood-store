@@ -11,7 +11,7 @@ function Cart(props) {
 
   const cartList = useSelector(state => state.carts);
 
-  const addInfo = (data) => {
+  const pay = (data) => {
     console.log(data);
   }
 
@@ -20,7 +20,7 @@ function Cart(props) {
       <Loading></Loading>
       <HeaderTop></HeaderTop>
       <CartItem cartList={cartList}></CartItem>
-      <Payment onAdd={addInfo}></Payment>
+      <Payment test={pay}></Payment>
       <Footer></Footer>
     </div>
   );

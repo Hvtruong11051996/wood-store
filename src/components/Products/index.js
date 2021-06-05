@@ -1,4 +1,4 @@
-import { notification, Tabs } from 'antd';
+import { notification, Popover, Tabs, Tooltip } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -85,6 +85,12 @@ function Products(props) {
     return str;
   }
 
+  const content = (
+    <div>
+      <p>Content</p>
+      <p>Content</p>
+    </div>
+  );
 
 
   const productList = products.map((product, index) => {
@@ -95,22 +101,30 @@ function Products(props) {
           <img src={product.images} alt="product"></img>
           <div className="wood-product__content-icons">
             <ul>
-              <li>
-                <i
-                  type="primary"
-                  className="fas fa-cart-plus"
-                  onClick={() => onAddToCart(product)}
-                >
-                </i>
-              </li>
-              <Link to={`/deatil/${URL}.${product.id}.html`}>
+              <Tooltip title="Add Cart" color={'#ffa940'}>
                 <li>
-                  <i className="la la-eye"></i>
+                  <i
+                    type="primary"
+                    className="fas fa-cart-plus"
+                    onClick={() => onAddToCart(product)}
+                  >
+                  </i>
                 </li>
+              </Tooltip>
+              <Link to={`/deatil/${URL}.${product.id}.html`}>
+
+                <Tooltip title="Product Deatil" color={'#ffa940'}>
+                  <li>
+                    <i className="la la-eye"></i>
+                  </li>
+                </Tooltip>
               </Link>
-              <li onClick={openUpdate}>
-                <i className="la la-heart-o"></i>
-              </li>
+
+              <Tooltip title="Add To Favorites" color={'#ffa940'}>
+                <li onClick={openUpdate}>
+                  <i className="la la-heart-o"></i>
+                </li>
+              </Tooltip>
             </ul>
           </div>
         </div>
@@ -176,22 +190,28 @@ function Products(props) {
                             <img src={product.images} alt="product"></img>
                             <div className="wood-product__content-icons">
                               <ul>
-                                <li>
-                                  <i
-                                    type="primary"
-                                    className="fas fa-cart-plus"
-                                    onClick={() => onAddToCart(product)}
-                                  >
-                                  </i>
-                                </li>
-                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                <Tooltip title="Add Cart" color={'#ffa940'}>
                                   <li>
-                                    <i className="la la-eye"></i>
+                                    <i
+                                      type="primary"
+                                      className="fas fa-cart-plus"
+                                      onClick={() => onAddToCart(product)}
+                                    >
+                                    </i>
                                   </li>
+                                </Tooltip>
+                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                  <Tooltip title="Product Deatil" color={'#ffa940'}>
+                                    <li>
+                                      <i className="la la-eye"></i>
+                                    </li>
+                                  </Tooltip>
                                 </Link>
-                                <li onClick={openUpdate}>
-                                  <i className="la la-heart-o"></i>
-                                </li>
+                                <Tooltip title="Add To Favorites" color={'#ffa940'}>
+                                  <li onClick={openUpdate}>
+                                    <i className="la la-heart-o"></i>
+                                  </li>
+                                </Tooltip>
                               </ul>
                             </div>
                           </div>
@@ -231,22 +251,28 @@ function Products(props) {
                             <img src={product.images} alt="product"></img>
                             <div className="wood-product__content-icons">
                               <ul>
-                                <li>
-                                  <i
-                                    type="primary"
-                                    className="fas fa-cart-plus"
-                                    onClick={() => onAddToCart(product)}
-                                  >
-                                  </i>
-                                </li>
-                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                <Tooltip title="Add Cart" color={'#ffa940'}>
                                   <li>
-                                    <i className="la la-eye"></i>
+                                    <i
+                                      type="primary"
+                                      className="fas fa-cart-plus"
+                                      onClick={() => onAddToCart(product)}
+                                    >
+                                    </i>
                                   </li>
+                                </Tooltip>
+                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                  <Tooltip title="Product Deatil" color={'#ffa940'}>
+                                    <li>
+                                      <i className="la la-eye"></i>
+                                    </li>
+                                  </Tooltip>
                                 </Link>
-                                <li onClick={openUpdate}>
-                                  <i className="la la-heart-o"></i>
-                                </li>
+                                <Tooltip title="Add To Favorites" color={'#ffa940'}>
+                                  <li onClick={openUpdate}>
+                                    <i className="la la-heart-o"></i>
+                                  </li>
+                                </Tooltip>
                               </ul>
                             </div>
                           </div>
@@ -286,22 +312,28 @@ function Products(props) {
                             <img src={product.images} alt="product"></img>
                             <div className="wood-product__content-icons">
                               <ul>
-                                <li>
-                                  <i
-                                    type="primary"
-                                    className="fas fa-cart-plus"
-                                    onClick={() => onAddToCart(product)}
-                                  >
-                                  </i>
-                                </li>
-                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                <Tooltip title="Add Cart" color={'#ffa940'}>
                                   <li>
-                                    <i className="la la-eye"></i>
+                                    <i
+                                      type="primary"
+                                      className="fas fa-cart-plus"
+                                      onClick={() => onAddToCart(product)}
+                                    >
+                                    </i>
                                   </li>
+                                </Tooltip>
+                                <Link to={`/deatil/${URL}.${product.id}.html`}>
+                                  <Tooltip title="Product Deatil" color={'#ffa940'}>
+                                    <li>
+                                      <i className="la la-eye"></i>
+                                    </li>
+                                  </Tooltip>
                                 </Link>
-                                <li onClick={openUpdate}>
-                                  <i className="la la-heart-o"></i>
-                                </li>
+                                <Tooltip title="Add To Favorites" color={'#ffa940'}>
+                                  <li onClick={openUpdate}>
+                                    <i className="la la-heart-o"></i>
+                                  </li>
+                                </Tooltip>
                               </ul>
                             </div>
                           </div>

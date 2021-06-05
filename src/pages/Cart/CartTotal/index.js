@@ -7,7 +7,7 @@ function CartTotal(props) {
     // ================ Tính tổng tiền ===================== // 
 
     const showTotalAmount = (carts) => {
-        console.log(carts);
+
         var result = null;
         if (carts.length > 0) {
             var total = 0;

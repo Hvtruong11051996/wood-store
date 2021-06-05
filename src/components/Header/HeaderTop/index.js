@@ -28,7 +28,6 @@ function HeaderTop(props) {
 
   const onHandleChange = () => {
     const action = actLogout({})
-    console.log(action);
     dispatch(action);
     openSuccess();
   }

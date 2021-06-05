@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox, notification } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import './login.css';
 import HeaderTop from '../../components/Header/HeaderTop';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory, useRouteMatch } from 'react-router';
 import { actUserLogin } from '../../actions';
 import { Link } from 'react-router-dom';
 
@@ -33,8 +33,9 @@ function Login(props) {
   const dispatch = useDispatch()
   const users = useSelector(state => state.register)
 
+
   const onFinish = (values) => {
-    console.log(values);
+
     if (users.length > 0) {
 
       var checkEmail = users.find(x => x.email === values.email);
@@ -42,6 +43,7 @@ function Login(props) {
 
       if (checkEmail && checkPass) {
         openSuccess();
+
         const action = actUserLogin(values);
         dispatch(action);
         history.push("/")

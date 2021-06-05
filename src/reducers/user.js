@@ -14,7 +14,6 @@ const user = (state = initialState, action) => {
             }
 
         case 'LOGOUT':
-            console.log(action.user);
             return {
                 email: action.user.email,
                 password: action.user.password

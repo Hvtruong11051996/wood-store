@@ -1,6 +1,6 @@
 import { notification } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
 import { actAddToCart } from '../../actions';
@@ -18,6 +18,8 @@ function Deatil(props) {
   const id = match.params.id
   const [product, setProduct] = useState([]);
   const dispatch = useDispatch();
+  const test = useSelector(state => state.user)
+  console.log(test);
 
   useEffect(() => {
     async function callProduct() {
@@ -131,7 +133,7 @@ function Deatil(props) {
           <p>{product.description}</p>
         </div>
       </div>
-      <CommentDeatil></CommentDeatil>
+      <CommentDeatil test={test}></CommentDeatil>
       <Slide></Slide>
       <Footer></Footer>
     </div>
