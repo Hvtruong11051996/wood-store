@@ -77,7 +77,7 @@ function Login(props) {
               },
             ]}
           >
-            <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
+            <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" autoComplete="off" />
           </Form.Item>
           <Form.Item
             name="password"

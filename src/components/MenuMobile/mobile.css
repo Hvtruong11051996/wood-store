@@ -21,6 +21,8 @@
     visibility: hidden;
     transform: translateX(-100%);
     transition: all 0.35s ease-in-out;
+    overflow-y: scroll;
+
 }
 
 .menu-mobile__logo {
@@ -34,8 +36,6 @@
 
 .menu-mobile__list {
     position: relative;
-    height: 100%;
-    background-color: #2f2f2f;
 }
 
 .menu-mobile__list ul {
@@ -49,8 +49,8 @@
 
 .menu-mobile__list ul li a {
     text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+    color: #1890ff;
+    font-weight: 500;
 }
 
 .menu-mobile__list ul li i {
@@ -73,9 +73,6 @@
 
 .menu-mobile__list ul li:hover a {
     cursor: pointer;
-    color: #ffb900;
-    border-left: 2px solid #fff;
-    padding-left: 5px;
 }
 
 .menu-mobile__toggle i {
@@ -114,6 +111,18 @@
 
 .menu-mobile__top {
     display: none;
+}
+
+.menu-mobile__title .anticon {
+    position: absolute;
+    right: 15px;
+    transition: all 0.35s ease-in-out;
+
+}
+
+.menu-mobile__list .menu-toggle {
+    display: none;
+    transition: all 0.35s ease-in-out;
 }
 
 

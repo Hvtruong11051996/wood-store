@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Footer from '../../components/Footer';
 import HeaderTop from '../../components/Header/HeaderTop';
 import Loading from '../../components/Loading';
+import MenuMobile from '../../components/MenuMobile';
 import './cart.css';
 import CartItem from './CartItem';
 import Payment from './Payment';
@@ -17,7 +18,7 @@ function Cart(props) {
 
   return (
     <div className="wood-cart">
-      <Loading></Loading>
+      <MenuMobile></MenuMobile>
       <HeaderTop></HeaderTop>
       <CartItem cartList={cartList}></CartItem>
       <Payment test={pay}></Payment>

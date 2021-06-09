@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loading from './components/Loading';
+import MenuMobile from './components/MenuMobile';
 import ScrollTop from './components/ScrollTop';
 import Routes from './routers';
 

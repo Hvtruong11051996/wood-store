@@ -47,11 +47,18 @@ function Payment({ test }) {
   const onFinish = (values) => {
     console.log(values)
     setPayCart(carts);
+    console.log(carts);
+    if (carts.length !== 0) {
+      const action = actPayDeleteCart([]);
+      dispatch(action)
+      history.push("/comeback")
+    } else {
+      alert("luu vao")
+    }
+    // const action = actPayDeleteCart([]);
+    // dispatch(action)
 
-    const action = actPayDeleteCart([]);
-    dispatch(action)
 
-    history.push("/comeback")
   };
 
   const prefixSelector = (
